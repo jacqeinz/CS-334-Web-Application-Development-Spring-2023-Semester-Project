@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,27 +18,27 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <div class="w3-container w3-display-container w3-padding-16">
-      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-      <h3 class="w3-wide"><b>Ice Cream Shop</b></h3>
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>Ice Cream Shop</b></h3>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      Ice Cream <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="sundaes.html" class="w3-bar-item w3-button">Sundaes</a>
+      <a href="cones.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Ice Cream Cones</a>
+      <a href="wafflebowls.html" class="w3-bar-item w3-button">Waffle Bowls</a>
     </div>
-    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-        Ice Cream <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="sundaes.html" class="w3-bar-item w3-button">Sundaes</a>
-        <a href="cones.html" class="w3-bar-item w3-button">Ice Cream Cones</a>
-        <a href="wafflebowls.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Ice Cream Bowls</a>
-      </div>
-      <a href="milkshakes.html" class="w3-bar-item w3-button">Milkshakes</a>
-      <a href="snowcones.html" class="w3-bar-item w3-button">Snowcones</a>
-   
-    </div>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-    <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-  </nav>
+    <a href="milkshakes.html" class="w3-bar-item w3-button">Blended Beverages</a>
+    <a href="snowcones.html" class="w3-bar-item w3-button">Snowcones</a>
+ 
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -65,11 +66,12 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
   <!-- Image header -->
   <div class="w3-display-container w3-container">
-    <img src="wafflebowl.jpg" alt="Ice Cream" style="width:100%">
+    <img src="conesheader.jpg" alt="Ice Cream Cones" style="width:100%">
     <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-      <h1 class="w3-jumbo w3-hide-small"style="color: #FFC0CB">Ice Cream Bowls</h1>
-      <h1 class="w3-hide-large w3-hide-medium"style="color: #FFC0CB">Ice Cream</h1>
-      <h1 class="w3-hide-small"style="color: #FFC0CB">Ice Cream Flavors</h1>
+      <h1 class="w3-jumbo w3-hide-small"style="color: #240b36">Ice Cream Cones</h1>
+      <h1 class="w3-hide-large w3-hide-medium"style="color: #240b36">Ice Cream</h1>
+      <h1 class="w3-hide-small"style="color: #240b36">Ice Cream Flavors</h1>
+      
     </div>
   </div>
 
@@ -78,6 +80,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 
   <!-- Product grid -->
+  <div>
   <div class="w3-row ">
     <div class="w3-col l3 s6">
       <input type="checkbox" id="tiramisuCheckbox" />
@@ -105,13 +108,16 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         </div>
         <p>Chocolate Chip<br><b></b></p>
       </div>
+   
       <div class="w3-container">
+        <div class="w3-display-container">
         <input type="checkbox" id="espressoCheckbox" />
         <label for="espressoCheckbox" class="w3-container">
           <img src="espresso.JPG" style="width:100%">
           <p>Espresso<br><b></b></p>
         </label>
       </div>
+    </div>
       <div class="w3-container">
         <input type="checkbox" id="strawberryCheckbox" />
         <label for="Checkbox" class="w3-container">
@@ -120,16 +126,16 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         </label>
       </div>
       
-    </div>
+    
 
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
+    <div >
+      
         <input type="checkbox" id="vanillaBeanCheckbox" />
         <label for="vanillaBeanCheckbox" class="w3-container">
           <img src="vanillabean.JPG" style="width:100%">
           <p>Vanilla Bean<br><b></b></p>
         </label>
-      </div>
+   
       <div class="w3-container">
         <input type="checkbox" id="ChocolateFudgeCheckbox" />
         <label for="chocolateFudgeCheckbox" class="w3-container">
@@ -158,6 +164,15 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     </div>
   
     </div>
+</div>
+</div>
+
+<div class="w3-display-container w3-container">
+  
+  <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+<p><a href="#icecream" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+    </div>
+  </div>
     
 
   <!-- Subscribe section -->

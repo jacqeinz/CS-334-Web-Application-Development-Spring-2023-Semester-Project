@@ -29,7 +29,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       </a>
       <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
         <a href="milkshakes.html" class="w3-bar-item w3-button">Milkshakes</a>
-        <a href="smoothies.html" class="w3-bar-item w3-button w3-light-grey"></a><i class="fa fa-caret-right w3-margin-right"></i>Smoothies</a>
+        <a href="smoothies.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Smoothies</a>
         <a href="frap.html" class="w3-bar-item w3-button" >Frappuccinos</a>
       </div>
       
@@ -81,18 +81,33 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 
   <!-- Product grid -->
-  
-  <div class="w3-row w3-grayscale">
+ 
+  <div>
+  <div class="w3-row ">
     <div class="w3-col l3 s6">
       <div class="w3-container">
+        <div class="w3-display-container">
         <img src="smoothie1.jpg" style="width:100%">
-        <p>Citrus Smoothie<br><b>$6.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="smoothiejpg.jpg" style="width:100%">
-        <p>Berry Smoothie<br><b>$6.99</b></p>
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
       </div>
     </div>
+        <p>Citrus Smoothie<br><b>$6.99</b></p>
+      </div>
+      <div class="w3-col l3 s6">
+        <div class="w3-container">
+        <div class="w3-display-container">
+        <img src="smoothiejpg.jpg" style="width:100%">
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+        <p>Berry Smoothie<br><b>$6.99</b></p>
+      </div>
+      </div>
+      </div>
+    
 
     <div class="w3-col l3 s6">
       <div class="w3-container">
@@ -108,14 +123,18 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     </div>
     </div>
 
+  
+
    
   <!-- Subscribe section -->
+  
   <div class="w3-container w3-black w3-padding-32">
     <h1>Subscribe</h1>
     <p>To get special offers and news:</p>
     <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
     <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
   </div>
+
   
   <!-- Footer -->
   <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
