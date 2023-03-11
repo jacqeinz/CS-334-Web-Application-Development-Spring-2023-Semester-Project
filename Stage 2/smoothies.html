@@ -18,27 +18,28 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>Ice Cream Shop</b></h3>
-  </div>
-  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      Ice Cream <i class="fa fa-caret-down"></i>
-    </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Sundaes</a>
-      <a href="cones.html" class="w3-bar-item w3-button">Ice Cream Cones</a>
-      <a href="wafflebowls.html" class="w3-bar-item w3-button">Waffle Bowls</a>
+    <div class="w3-container w3-display-container w3-padding-16">
+      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+      <h3 class="w3-wide"><b>Ice Cream Shop</b></h3>
     </div>
-    <a href="milkshakes.html" class="w3-bar-item w3-button">Milkshakes</a>
-    <a href="snowcones.html" class="w3-bar-item w3-button">Snowcones</a>
- 
-  </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-</nav>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a href="#" class="w3-bar-item w3-button">Ice Cream</a>
+      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Blended Beverages <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="milkshakes.html" class="w3-bar-item w3-button">Milkshakes</a>
+        <a href="smoothies.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Smoothies</a>
+        <a href="frap.html" class="w3-bar-item w3-button" >Frappuccinos</a>
+      </div>
+      
+      <a href="snowcones.html" class="w3-bar-item w3-button">Snowcones</a>
+   
+    </div>
+    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+    <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+  </nav>
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -57,7 +58,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">Ice Cream</p>
+    <p class="w3-left">Blended Beverages</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
@@ -68,81 +69,72 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-display-container w3-container">
     <img src="header3.jpg" alt="Ice Cream" style="width:100%">
     <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-      <h1 class="w3-jumbo w3-hide-small"style="color: #FFC0CB">Ice Cream</h1>
-      <h1 class="w3-hide-large w3-hide-medium"style="color: #FFC0CB">Ice Cream</h1>
-      <h1 class="w3-hide-small"style="color: #FFC0CB">Sundaes</h1>
-      <p><a href="#icecream" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+      <h1 class="w3-jumbo w3-hide-small"style="color: #240b36">Blended Beverages</h1>
+      <h1 class="w3-hide-large w3-hide-medium"style="color: #240b36">Blended Beverages</h1>
+      <h1 class="w3-hide-small"style="color: #240b36">Smoothies</h1>
+      <p><a href="smoothies" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
     </div>
   </div>
 
-  <div class="w3-container w3-text-grey" id="icecream">
-    <p>7 items</p>
+  <div class="w3-container w3-text-grey" id="smoothies">
+    <p>3 items</p>
   </div>
 
   <!-- Product grid -->
+ 
+  <div>
   <div class="w3-row ">
     <div class="w3-col l3 s6">
       <div class="w3-container">
-        <a href="SimpleSundaeFlavors.html"><img src="icecream1.jpg" style="width:100%"></a>
-        <p>Simple Sundae<br><b>$5.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="icecream2.jpg" style="width:100%">
-        <p>Cereal Ice Cream Sundae with Cereal Bowl<br><b>$8.99</b></p>
+        <div class="w3-display-container">
+        <img src="smoothie1.jpg" style="width:100%">
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
       </div>
     </div>
+        <p>Citrus Smoothie<br><b>$6.99</b></p>
+      </div>
+      <div class="w3-col l3 s6">
+        <div class="w3-container">
+        <div class="w3-display-container">
+        <img src="smoothiejpg.jpg" style="width:100%">
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+        <p>Berry Smoothie<br><b>$6.99</b></p>
+      </div>
+      </div>
+      </div>
+    
 
     <div class="w3-col l3 s6">
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="icecream3.jpg" style="width:100%">
+          <img src="smoothie2.jpg" style="width:100%">
           <span class="w3-tag w3-display-topleft">New</span>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Chocolate Fudge Sundae<br><b>$6.99</b></p>
-      </div>
-      <div class="w3-container">
-        <a href="ChocolateFudgeBrownieFlavors.html"><img src="icecream4.jpg" style="width:100%"></a>
-        <p>Chocolate Fudge Brownie Sundae<br><b>$8.99</b></p>
+        <p>Greens Smoothie<br><b>$6.99</b></p>
       </div>
     </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <a href="BananaSplitFlavors.html"><img src="icecream5.jpg" style="width:100%"></a>
-        <p>Banana Split<br><b>$7.99</b></p>
-      </div>
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="icecream6.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>Strawberry Sundae<br><b >$7.99</b></p>
-      </div>
     </div>
 
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <img src="icecream7.jpg" style="width:100%">
-        <p>Fried Ice Cream Sundae<br><b>$9.99</b></p>
-      </div>
-      <div class="w3-container">
-       
-      </div>
-    </div>
-  </div>
+  
 
+   
   <!-- Subscribe section -->
+  
   <div class="w3-container w3-black w3-padding-32">
     <h1>Subscribe</h1>
     <p>To get special offers and news:</p>
     <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
     <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
   </div>
+
   
   <!-- Footer -->
   <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">

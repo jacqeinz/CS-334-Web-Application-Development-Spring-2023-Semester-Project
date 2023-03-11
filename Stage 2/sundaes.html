@@ -18,28 +18,27 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <div class="w3-container w3-display-container w3-padding-16">
-      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-      <h3 class="w3-wide"><b>Ice Cream Shop</b></h3>
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>Ice Cream Shop</b></h3>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      Ice Cream <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Sundaes</a>
+      <a href="cones.html" class="w3-bar-item w3-button">Ice Cream Cones</a>
+      <a href="wafflebowls.html" class="w3-bar-item w3-button">Ice Cream Bowls</a>
     </div>
-    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-        <a href="sundaes.html" class="w3-bar-item w3-button">Ice Cream</a>
-      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-        Blended Beverages <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-buttonw3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Milkshakes</a>
-        <a href="smoothies.html" class="w3-bar-item w3-button">Smoothies</a>
-        <a href="frap.html" class="w3-bar-item w3-button" >Frappuccinos</a>
-      </div>
-      
-      <a href="snowcones.html" class="w3-bar-item w3-button">Snowcones</a>
-   
-    </div>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-    <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-  </nav>
+    <a href="milkshakes.html" class="w3-bar-item w3-button">Blended Beverages</a>
+    <a href="snowcones.html" class="w3-bar-item w3-button">Snowcones</a>
+ 
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -58,7 +57,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">Blended Beverages</p>
+    <p class="w3-left">Ice Cream</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
@@ -69,49 +68,101 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-display-container w3-container">
     <img src="header3.jpg" alt="Ice Cream" style="width:100%">
     <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-      <h1 class="w3-jumbo w3-hide-small"style="color: #240b36">Blended Beverages</h1>
-      <h1 class="w3-hide-large w3-hide-medium"style="color: #240b36">Blended Beverages</h1>
-      <h1 class="w3-hide-small"style="color: #240b36">Milkshakes</h1>
-      <p><a href="#milkshakes" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+      <h1 class="w3-jumbo w3-hide-small"style="color: #FFC0CB">Ice Cream</h1>
+      <h1 class="w3-hide-large w3-hide-medium"style="color: #FFC0CB">Ice Cream</h1>
+      <h1 class="w3-hide-small"style="color: #FFC0CB">Sundaes</h1>
+      <p><a href="#icecream" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
     </div>
   </div>
 
-  <div class="w3-container w3-text-grey" id="smoothies">
-    <p>3 items</p>
+  <div class="w3-container w3-text-grey" id="icecream">
+    <p>7 items</p>
   </div>
 
   <!-- Product grid -->
-  <div class="w3-row">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <img src="milkshake2.jpg" style="width:100%">
-        <p>Princess Dreams Milkshake<br><b>$10.99</b></p>
-      </div>
-      <div class="w3-container">
-        <img src="milkshake3.jpg" style="width:100%">
-        <p>Chocolate Fudge Smoothie<br><b>$10.99</b></p>
-      </div>
-    </div>
-    <div>
+  <div class="w3-row ">
     <div class="w3-col l3 s6">
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="strawberry-banana-milkshake-featured-pic.jpg" style="width:100%">
+        <a href="SimpleSundaeFlavors.html"><img src="icecream1.jpg" style="width:100%"></a>
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+        <p>Simple Sundae<br><b>$5.99</b></p>
+        <figcaption>Ice Cream Sundae with chocolate fudge. Served with whipped cream and rainbow sprinkles.</figcaption>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+        <img src="icecream2.jpg" style="width:100%">
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+        <p>Cereal Ice Cream Sundae with Cereal Bowl<br><b>$8.99</b></p>
+        <figcaption>Cereal flavored Ice Cream served in a cereal bowl. Topped with whipped cream and cherries. </figcaption>
+      </div>
+    </div>
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="icecream3.jpg" style="width:100%">
           <span class="w3-tag w3-display-topleft">New</span>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        </div>
-        <p>Strawberry Pancake Milkshake<br><b>$10.99</b></p>
-     
-        <img src="tiramisu-milkshake-hero.jpg" style="width:100%">
-        <p>Tiramisu Milkshake<br><b>$10.99</b></p>
+        <p>Chocolate Fudge Sundae<br><b>$6.99</b></p>
+        <figcaption>White Chocolate Fudge flavored Ice Cream. Topped with chocolate fudge, whipped cream, and vanilla wafers. </figcaption>
       </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+        <a href="ChocolateFudgeBrownieFlavors.html"><img src="icecream4.jpg" style="width:100%"></a>
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+        <p>Chocolate Fudge Brownie Sundae<br><b>$8.99</b></p>
+        <figcaption>Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry. </figcaption>
       </div>
     </div>
 
-   
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <a href="BananaSplitFlavors.html"><img src="icecream5.jpg" style="width:100%"></a>
+        <p>Banana Split<br><b>$7.99</b></p>
+        <figcaption>Banana Split Topped with whipped cream, cherries, and pecans.</figcaption>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="icecream6.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <figcaption>Strawberry Ice Cream with strawberry sauce topped with whipped cream.</figcaption>
+        <p>Strawberry Sundae<br><b >$7.99</b></p>
+      </div>
+    </div>
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+        <img src="icecream7.jpg" style="width:100%">
+        <div class="w3-display-middle w3-display-hover">
+          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+      <figcaption>Fried Ice Cream flavored with fried bits. Topped with whipped cream and cherries. </figcaption>
+        <p>Fried Ice Cream Sundae<br><b>$9.99</b></p>
+      </div>
+      <div class="w3-container">
+       
+      </div>
+    </div>
+  </div>
+
   <!-- Subscribe section -->
   <div class="w3-container w3-black w3-padding-32">
     <h1>Subscribe</h1>
