@@ -4,10 +4,11 @@ body{
   font-family:'Quicksand', sans-serif;
   text-align:center;
   line-height:1.5em;
+  background-color: rgb(193, 253, 253);
 }
 hr {
   border:none;
-  background:#E0E4CC;
+  background:#cce2e4;
   height:1px;
   /* width:60%;
   display:block;
@@ -39,9 +40,9 @@ h1{
   padding:1em;
 }
 button, input[type="submit"] { 
-    border:1px solid #FA6900; 
+    border:1px solid #4ffa00; 
     color:#fff; 
-    background: #F38630; 
+    background: #40f330; 
     padding:0.6em 1em;
     font-size:1em; 
     line-height:1; 
