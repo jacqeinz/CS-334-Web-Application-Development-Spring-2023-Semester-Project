@@ -12,6 +12,10 @@
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+.goToFlavors :hover, .goToCart :hover{
+      opacity: 0.75;
+      cursor: pointer;
+    }
 </style>
 </head>
 <body class="w3-content" style="max-width:1200px">
@@ -81,47 +85,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 
   <!-- Product grid -->
-  <div class="w3-row">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-        <img src="images/snowconeflower.jpeg" style="width:100%">
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-        </div>
-      </div>
-        <figcaption>Rainbow snowcone flower with blue coconut, vanilla bean, mango, and strawberry flavors.</figcaption>
-        <b><p>SnowCone Flower</b><br><b>$8.99</b></p>
-      </div>
-    </div>
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-        <img src="images/snowcone1.jpg" style="width:100%">
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-        </div>
-      </div>
-        <b><p>Tropical Fruit SnowCone</b><br><b>$10.99</b></p>
-        <figcaption>SnowCone Mountain with mango, vanilla, and strawberry flavored ice. Served with mango slices, strawberry slices, and whipped cream. </figcaption>
-      </div>
-    </div>
-  
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="images/snowcone2.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        
-        <p><b>Strawberry Vanilla SnowCone</b><br><b>$10.99</b></p>
-        <figcaption>SnowCone Mountain with starwberry and vanilla bean flavored ice. Topped with strawberry jam, strawberry slices, and whipped cream.</figcaption>
-      </div>
-    </div>
+  <div class="w3-row" id = "products">
+   
      
     </div>
 
@@ -199,32 +164,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 </div>
 
-<script>
-// Accordion 
-function myAccFunc() {
-  var x = document.getElementById("demoAcc");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// Click on the "Jeans" link on page load to open the accordion for demo purposes
-document.getElementById("myBtn").click();
-
-
-// Open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-</script>
-
 </body>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="snowcones.js"></script>
 </html>

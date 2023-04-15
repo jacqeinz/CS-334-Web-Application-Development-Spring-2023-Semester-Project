@@ -83,88 +83,69 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 
   <!-- Product grid -->
-  <div class="w3-row ">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-        <a href="SimpleSundaeFlavors.html"><img src="images/icecream1.jpg" style="width:100%"></a>
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+  <div class="w3-row"  id = "products">
+    <div class="w3-col l3 s6" class="goToFlavors">
+      <button><div class="w3-container" onclick="sundae_flavors('simple_sundae')" id = "simple_sundae"></button>
+        <div class="w3-display-container" >
+          <img src="images/icecream1.jpg" style="width:100%";/>
         </div>
-      </div>
         <p>Simple Sundae<br><b>$5.99</b></p>
         <figcaption>Ice Cream Sundae with chocolate fudge. Served with whipped cream and rainbow sprinkles.</figcaption>
-      </div>
-      <div class="w3-container">
+        </div>
+      
+
+      <div class="w3-container" onclick="addToCart('cereal_sundae')" id="cereal_sundae" class="goToCart">
         <div class="w3-display-container">
         <img src="images/icecream2.jpg" style="width:100%">
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
         </div>
-      </div>
         <p>Cereal Ice Cream Sundae with Cereal Bowl<br><b>$8.99</b></p>
         <figcaption>Cereal flavored Ice Cream served in a cereal bowl. Topped with whipped cream and cherries. </figcaption>
-      </div>
     </div>
 
     <div class="w3-col l3 s6">
-      <div class="w3-container">
+      <div class="w3-container" onclick="addToCart('fudge_sundae')" id="fudge_sundae" class="goToCart">
         <div class="w3-display-container">
           <img src="images/icecream3.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
         </div>
         <p>Chocolate Fudge Sundae<br><b>$6.99</b></p>
         <figcaption>White Chocolate Fudge flavored Ice Cream. Topped with chocolate fudge, whipped cream, and vanilla wafers. </figcaption>
       </div>
-      <div class="w3-container">
-        <div class="w3-display-container">
-        <a href="ChocolateFudgeBrownieFlavors.html"><img src="images/icecream4.jpg" style="width:100%"></a>
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-        </div>
-      </div>
-        <p>Chocolate Fudge Brownie Sundae<br><b>$8.99</b></p>
-        <figcaption>Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry. </figcaption>
-      </div>
     </div>
+   <!-- Brownie Sundae --> 
+   <div class="w3-container" onclick="sundae_flavors('brownie_sundae')" id = "brownie_sundae" class="goToFlavors">
+    <div class="w3-display-container" >
+    <img src="images/icecream4.jpg" style="width:100%" id = "brownie_sundae">
+      </div>
+    <p>Chocolate Fudge Brownie Sundae<br><b>$8.99</b></p>
+    <figcaption>Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry. </figcaption>
+  </div>
 
     <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <a href="BananaSplitFlavors.html"><img src="images/icecream5.jpg" style="width:100%"></a>
+      <div class="w3-container goToFlavors" onclick="sundae_flavors('banana_split')" id= "banana_split">
+        <img src="images/icecream5.jpg" style="width:100%">
         <p>Banana Split<br><b>$7.99</b></p>
         <figcaption>Banana Split Topped with whipped cream, cherries, and pecans.</figcaption>
       </div>
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="images/icecream6.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <figcaption>Strawberry Ice Cream with strawberry sauce topped with whipped cream.</figcaption>
-        <p>Strawberry Sundae<br><b >$7.99</b></p>
-      </div>
     </div>
 
-    <div class="w3-col l3 s6">
+    <div class="w3-container" onclick="addToCart('strawberrySundae')" id= "strawberry_sundae" class="goToCart">
+      <div class="w3-display-container">
+        <img src="images/icecream6.jpg" style="width:100%">
+      </div>
+      <figcaption>Strawberry Ice Cream with strawberry sauce topped with whipped cream.</figcaption>
+      <p>Strawberry Sundae<br><b >$7.99</b></p>
+    </div>
+
+    <div class="w3-col l3 s6" onclick="addToCart('fried_sundae')" id="fried_sundae" class="goToCart">
       <div class="w3-container">
         <div class="w3-display-container">
         <img src="images/icecream7.jpg" style="width:100%">
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-        </div>
       </div>
       <figcaption>Fried Ice Cream flavored with fried bits. Topped with whipped cream and cherries. </figcaption>
         <p>Fried Ice Cream Sundae<br><b>$9.99</b></p>
-      </div>
-      <div class="w3-container">
-       
-      </div>
     </div>
   </div>
+</div>
 
   <!-- Subscribe section -->
   <div class="w3-container w3-pink w3-padding-32">
@@ -239,32 +220,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 </div>
 
-<script>
-// Accordion 
-function myAccFunc() {
-  var x = document.getElementById("demoAcc");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// Click on the "Jeans" link on page load to open the accordion for demo purposes
-document.getElementById("myBtn").click();
-
-
-// Open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-</script>
 
 </body>
+
+<script type="text/javascript" src="sundaes.js"></script>
 </html>

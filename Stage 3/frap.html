@@ -12,6 +12,10 @@
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+.goToCart :hover{
+      opacity: 0.75;
+      cursor: pointer;
+    }
 </style>
 </head>
 <body class="w3-content" style="max-width:1200px">
@@ -79,53 +83,14 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     </div>
   </div>
 
-  <div class="w3-container w3-text-pink" id="frappucinos">
+  <div class="w3-container w3-text-pink" id="frappeecount">
     <p>3 items</p>
   </div>
 
   <!-- Product grid -->
-  <div>
-  <div class="w3-row ">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-        <img src="images/frap.jpg" style="width:100%">
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-        </div>
-      </div>
-        <figcaption></figcaption>
-      
-        <p>Caramel Frappuccino<br><b>$5.99</b></p>
-      </div>
+ 
+  <div class="w3-row" id="products">
    
-          <div class="w3-container">
-            <div class="w3-display-container">
-
-        <img src="images/frap2.jpg" style="width:100%">
-        <div class="w3-display-middle w3-display-hover">
-          <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-        </div>
-      </div>
-        <p>Strawberries and Cream Frappuccino<br><b>$5.99</b></p>
-      </div>
-    </div>
-    
-    
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="images/Starbucks-Mocha-Frappuccino.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-  
-        </div>
-        <p>Mocha Frappuccino<br><b>$5.99</b></p>
-      </div>
-    </div>
   </div>
     
 
@@ -231,4 +196,6 @@ function w3_close() {
 </script>
 
 </body>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="frap.js"></script>
 </html>

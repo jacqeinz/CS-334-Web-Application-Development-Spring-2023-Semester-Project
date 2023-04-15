@@ -27,7 +27,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
       Ice Cream <i class="fa fa-caret-down"></i>
     </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+    <div id="demoAcc" class="w3-bar-block w3-padding-large w3-medium">
       <a href="sundaes.html" class="w3-bar-item w3-button">Sundaes</a>
       <a href="cones.html" class="w3-bar-item w3-button">Ice Cream Cones</a>
       <a href="wafflebowls.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Ice Cream Bowls</a>
@@ -87,33 +87,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   
      
-        <div class="w3-row-padding w3-display-container">
-          <div class="w3-col l3 s6">
-        <a href="BowlFlavors.html"><img src="images/depositphotos_20239945-stock-photo-macro-chocolate-sundae-with-cherry.jpg" style="width:100%"></a>
-        <p>Waffle Bowl<br><b>$6.99</b></p>
-      </div>
-
-      <div class="w3-col l3 s6">
-        <a href="BowlFlavors.html"><img src="images/chocolatebowl.jpg" style="width:100%"></a>
-        <p>Chocolate Dipped Waffle Bowl<br><b>$7.99</b></p>
-      </div>
-      
-      <div class="w3-col l3 s6">
-      <a href="BowlFlavors.html"><img src="images/icecream2.jpg" style="width:100%"></a>
-      <p>Cereal Bowl<br><b>$6.99</b></p>
-    </div>
-      
-    <div class="w3-col l3 s6">
-        
-            <a href="BowlFlavors.html"><img src="images/waffleBowlS.png" style="width:100%"></a>
-        <p>Waffle Bowl Sundae<br><b>$9.99</b></p>
-      </div>
-      
-      <div class="w3-col l3 s6">
-        <a href="BowlFlavors.html"><img src="images/wafflebowl.jpg" style="width:100%"></a>
-        <p>Brownie Sundae Chocolate Waffle Bowl<br><b>$9.99</b></p>
-      </div>
-    
+        <div class="w3-row" id = "products">
   </div> 
     
     
@@ -193,32 +167,9 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 </div>
 
-<script>
-// Accordion 
-function myAccFunc() {
-  var x = document.getElementById("demoAcc");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
 
-// Click on the "Jeans" link on page load to open the accordion for demo purposes
-document.getElementById("myBtn").click();
-
-
-// Open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
 </script>
-
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="wafflebowls.js"></script>
 </body>
 </html>
