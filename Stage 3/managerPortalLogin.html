@@ -22,23 +22,22 @@
     </style>
 </head>
 <body>
-    <form action="action_page.php" method="post">
+    <form id="loginForm">
         <div class="container">
             <a href="index.html"><img src="images/LOGO.JPG" width="200px" height="150px"></a>
             <h1>Employee Account Login</h1>
-            <label for="manID"><b>Employee ID:</b></label>
-            <input type="text" placeholder="Enter Employee ID" name="manID" required><br>
+            <label for="username"><b>Employee ID:</b></label>
+            <input type="text" placeholder="Enter Employee ID" name="username" id="username" required><br>
     
-            <label for="pass"><b>Password:</b></label>
-            <input type="password" placeholder="Enter Password" name="pass" required><br>
+            <label for="password"><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
         
-            <button type="submit">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember Me
-            </label><br>
+            <button type="submit" value="Login">Login</button>
             <span class="pass">Forgot <a href="forgotPasswordPage.html">password?</a></span><br><br>
             <a href="index.html">Return to Homepage</a>
         </div>
     </form>
+    <script type= "text/javascript" src="loginValid.js"></script>
+    <script type="text/javascript" src="common.js"></script>
 </body>
 </html>

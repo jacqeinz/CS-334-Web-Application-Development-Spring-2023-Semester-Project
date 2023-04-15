@@ -4,78 +4,57 @@
             "name":"sundaeType",
             "data": [
                 {"id":"simple_sundae", "hasFlavors":true, "name":"Simple Sundae", "description":"Ice Cream Sundae with chocolate fudge. Served with whipped cream and rainbow sprinkles.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"cereal_sundae", "hasFlavors":false, "name":"Cereal Ice Cream Sundae with Cereal Bowl", "description":"Cereal flavored Ice Cream served in a cereal bowl. Topped with whipped cream and cherries.", "price":8.99, "imgSrc":"images/icecream2.jpg"},
-                {"id":"fudge_sundae", "hasFlavors":true, "name":"Chocolate Fudge Sundae", "description":"White Chocolate Fudge flavored Ice Cream. Topped with chocolate fudge, whipped cream, and vanilla wafers.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"brownie_sundae", "hasFlavors":false, "name":"Chocolate Fudge Brownie Sundae", "description":"Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"banana_sundae", "hasFlavors":true, "name":"Banana Split Sundae", "description":"Banana Split Topped with whipped cream, cherries, and pecans.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"strawberry_sundae", "hasFlavors":false, "name":"Strawberry Sundae", "description":"Strawberry Ice Cream with strawberry sauce topped with whipped cream.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"fried_sundae", "hasFlavors":false, "name":"Fried Ice Cream Sundae", "description":"Fried Ice Cream flavored with fried bits. Topped with whipped cream and cherries.", "price":5.99, "imgSrc":"images/icecream1.jpg"}
+                {"id":"cereal_sundae", "hasFlavors":false, "name":"Cereal Ice Cream Sundae with Cereal Bowl", "description":"Cereal flavored Ice Cream served in a cereal bowl. Topped with whipped cream and cherries.", "price":8.99, "imgSrc":"images/icecream2.jpg"}
+
             ]
         },
         {
             "name":"coneType",
             "data": [
-                {"id":"dipped_cone", "hasFlavors":true, "name":"Chocolate Dipped Cone with Rainbow Sprinkles", "price":6.99, "imgSrc":"images/dipped-ice-cream-cones-8-480x270.jpg"},
-                {"id":"chocolate_cone", "hasFlavors":true, "name":"Chocolate Dipped Cones", "price":6.99, "imgSrc":"images/cone4.jpg"},
-                {"id":"plain_cone", "hasFlavors":true, "name":"Plain waffle Cone", "price":5.99, "imgSrc":"images/cone5.jpg"}
+                {"id":"dipped_cone", "hasFlavors":true, "name":"Chocolate Dipped Cone with Rainbow Sprinkles", "price":1.99, "imgSrc":""}
             ]
         },
         {
             "name":"bowlType",
             "data": [
-                {"id":"waffleB", "hasFlavors":true, "name":"Waffle Bowl", "price":6.99, "imgSrc":"images/depositphotos_20239945-stock-photo-macro-chocolate-sundae-with-cherry.jpg"}, 
-                {"id":"chocB", "hasFlavors":true, "name":"Chocolate Dipped Waffle Bowl", "price":7.99, "imgSrc":"images/chocolatebowl.jpg"}, 
-                {"id":"CerealB", "hasFlavors":true, "name":"Cereal Bowl","price":6.99, "imgSrc":"images/icecream2.jpg"}, 
-                {"id":"waffleS", "hasFlavors":true, "name":"Waffle Bowl Sundae","price":9.99, "imgSrc":"images/waffleBowlS.png"}, 
-                {"id":"browB", "hasFlavors":true, "name":"Brownie Sundae Chocolate Waffle Bowl", "price":9.99, "imgSrc":"images/wafflebowl.jpg"}
+                {"id":"1", "hasFlavors":true, "name":"", "description":"", "price":1.99, "imgSrc":""}
             ]
         },
         
         {
             "name":"milkShakeType",
             "data": [
-                {"id":"prinShake", "name":"Princess Dreams Milkshake", "description":"A cotton candy flavored milkshake with strawberry frosting and marshmallow decorations", "price":10.99, "imgSrc":"images/milkshake2.jpg"},
-                {"id":"chocShake", "name":"Chocolate Fudge Smoothie", "description":"A creamy chocolate fudge milkshake made with Ghirardelli Chocolate. Topped with whipped cream and a square of Ghirardelli chocolate", "price":10.99, "imgSrc":"images/milkshake3.jpg"},
-                {"id":"spShake", "name":"Strawberry Pancake Milkshake", "description":"A strawberry and pancake flavored milkshake. Topped with mini strawberry pancakes and whipped cream.", "price":10.99, "imgSrc":"images/strawberry-banana-milkshake-featured-pic.jpg"},
-                {"id":"tiraShake", "name":"Tiramisu Milkshake", "description":"A tiramisu flavored milkshake. Topped with whipped cream, chocolate fudge, and espresso soaked lady fingers.", "price":10.99, "imgSrc":"images/tiramisu-milkshake-hero.jpg"}
+                {"id":"1", "name":"", "description":"", "price":1.99, "imgSrc":""}
             ]
         },
         {
             "name":"smoothieType",
             "data": [
-                {"id":"citsmoo", "name":"Cirus Smoothie", "price":6.99, "imgSrc":"images/smoothie1.jpg"},
-                {"id":"bersmoo", "name":"Berry Smoothie", "price":6.99, "imgSrc":"images/smoothiejpg.jpg"},
-                {"id":"greensmoo", "name":"Greens Smoothie", "price":6.99, "imgSrc":"images/smoothie2.jpg"}
+                {"id":"1", "name":"", "description":"", "price":1.99, "imgSrc":""}
             ]
         },
         {
             "name":"frappeType",
             "data": [
-                {"id":"carFrap", "name":"Caramel Frappe", "price":5.99, "imgSrc":"images/frap.jpg"},
-                {"id":"strawFrap", "name":"Strawberries and Cream Frappe", "price":5.99, "imgSrc":"images/frap2.jpg"},
-                {"id":"mochaFrap", "name":"Mocha Frappe", "price":5.99, "imgSrc":"images/Starbucks-Mocha-Frappuccino.jpg"}
+                {"id":"1", "name":"", "description":"", "price":1.99, "imgSrc":""}
             ]
         },
         {
             "name":"snowConeType",
             "data": [
-                {"id":"flowerCone", "name":"SnowCone Flower", "description":"Rainbow snowcone flower with blue coconut, vanilla bean, mango, and strawberry flavors.", "price":8.99, "imgSrc":"images/snowconeflower.jpeg"}, 
-                {"id":"TropcCone", "name":"Tropical Fruit SnowCone", "description":"SnowCone Mountain with mango, vanilla, and strawberry flavored ice. Served with mango slices, strawberry slices, and whipped cream.", "price":10.99, "imgSrc":"images/snowcone1.jpg"},
-                {"id":"StrawCone", "name":"SnowCone Flower", "description":"SnowCone Mountain with starwberry and vanilla bean flavored ice. Topped with strawberry jam, strawberry slices, and whipped cream.", "price":10.99, "imgSrc":"images/snowcone2.jpg"}
+                {"id":"1", "name":"", "description":"", "price":1.99, "imgSrc":""}
             ]
         },
         {
             "name":"flavors",
             "data": [
-                {"id":"tiramisu", "name":"Tiramisu", "imgSrc":"images/tiramisu.JPG"},
-                {"id":"cookieDough", "name":"Cookie Dough", "imgSrc":"images/cookiedough.JPG"},
-                {"id":"raspchees", "name":"Raspberry Cheesecake", "imgSrc":"images/raspberrycheescake.JPG"},
-                {"id":"chocolatechip", "name":"Chocolate Chip", "imgSrc":"images/chocolatechip.JPG"},
-                {"id":"espresso", "name":"Espresso", "imgSrc":"images/espresso.JPG"},
-                {"id":"strawberry", "name":"Strawberry", "imgSrc":"images/strawberry.JPG"},
-                {"id":"vanillaBean", "name":"Vanilla Bean", "imgSrc":"images/vanillabean.JPG"},
-                {"id":"pecanPraline", "name":"Pecan Praline", "imgSrc":"images/pecanpraline.JPG"},
-                {"id":"ChocolateFudge", "name":"Chocolate Fudge", "imgSrc":"images/chocolatefudge.JPG"}
+                {"id":"1", "name":"", "imgSrc":""}
+            ]
+        },
+        {
+            "name":"login",
+            "data": [
+                {"username": "user1","password":"pass1"},  {"username": "jane.doe","password": "123password"},  {"username": "bob.smith","password": "secret123"}
             ]
         }
     ]
