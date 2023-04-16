@@ -1,18 +1,25 @@
 document.getElementById("flavors").innerHTML = writeInitialFlavors();
+let editType = 'regular';
 //FLAVOR ITEM: get initial content after EDIT button is clicked
 function editFlavorItem(element){
     selectedElement = element.parentElement.parentElement.parentElement;
     console.log(selectedElement);
     Initname = selectedElement.childNodes[3];
     Initimage = selectedElement.childNodes[1].childNodes[1];
+    console.log(Initimage);
     showFlavorEditTab();
 }
 //REGULAR ITEM: get initial content after EDIT button is clicked
 function editItem(element){
     selectedElement = element.parentElement.parentElement.parentElement;
     Initname='';Initimage='';Initprice='';Initdesc='';
-
+    
     Initname = selectedElement.childNodes[3];
+    actualName = Initname.innerHTML;
+    actualName = actualName.split('<br>');
+    actualName = actualName[0];
+
+    console.log("initname: ", Initname);
     Initprice = selectedElement.childNodes[3].childNodes[2];
     Initdesc = selectedElement.childNodes[5];
     console.log("initdesc", Initdesc);
@@ -22,6 +29,8 @@ function editItem(element){
 
 //FLAVOR TAB: shows the editing tab for flavors, populates it with information from the initial html
 function showFlavorEditTab(){
+    editType='flavor';
+    console.log("edit type", editType);
     document.getElementById('edit_tab').style.display='block'
     tab = document.getElementById('edit_tab');
   
@@ -37,6 +46,8 @@ function showFlavorEditTab(){
 }
 //REGULAR TAB: shows the editing tab for regular items with descriptions and prices
 function showEditTab(){
+    editType='regular';
+    console.log("edit type", editType);
     document.getElementById('edit_tab').style.display='block'
     tab = document.getElementById('edit_tab');
   
@@ -46,7 +57,7 @@ function showEditTab(){
     descfield = tab.childNodes[1].childNodes[1].childNodes[13];
     
     tabimage.innerHTML = Initimage.outerHTML;
-    namefield.innerHTML = `<input class = "w3-input w3-border" type="text" placeholder="` + Initname.innerHTML +`"` + ` value="` + Initname.innerHTML + `"id="editName"></input>`;
+    namefield.innerHTML = `<input class = "w3-input w3-border" type="text" placeholder="` + actualName +`"` + ` value="` + actualName + `"id="editName"></input>`;
     console.log("descfield: ", descfield);
     pricefield.innerHTML = `<input class="w3-input w3-border" type="text" placeholder="`+ Initprice.innerHTML+`"` + ` value="` + Initprice.innerHTML + `"id="editPrice"></input>`;
     descfield.innerHTML = `<input class="w3-input w3-border" type="text" placeholder="`+ Initdesc.innerHTML+`"` + ` value="` + Initdesc.innerHTML + `"id="editDesc"></input>`;
@@ -54,10 +65,20 @@ function showEditTab(){
 
 //Function runs on Save Item being clicked
 //updates the initial name and image for flavor items
-function updateFlavorItem(){
+function updateItem(){
+  if (editType = 'flavor'){
     Initname.innerHTML = document.getElementById("editName").value;
     Initimage.outerHTML = tabimage.innerHTML;
     document.getElementById('edit_tab').style.display='none';
+  }
+  if (editType = 'regular'){
+    newName = document.getElementById("editName").value;
+    Initname.outerHTML = `<p>`+ newName + `<br><b>`+document.getElementById("editPrice").value+`</b>`+`</p>`;
+    Initdesc.innerHTML = document.getElementById("editDesc").value;
+    Initimage = tabimage.innerHTML;
+    document.getElementById('edit_tab').style.display='none';
+  }
+    
 }
   
 //EDIT TAB: If the user selects a new image, update the edit tab to show it
@@ -92,7 +113,7 @@ function createNewItem(){
     itemname = document.getElementById("nameEdit").value;
     itemprice = document.getElementById("priceEdit").value;
     itemdesc = document.getElementById("descEdit").value;
-    itemimg = imageSlot.innerHTML;
+    itemimg = '<img src="images/' + filename + '" style="width:100%">';
     itemcategory = document.getElementById("category").value;
     section = document.getElementById(itemcategory);
     console.log(itemcategory);
@@ -106,7 +127,11 @@ function createNewItem(){
                                 <div class="w3-display-middle w3-display-hover">`
                                 + buttonhtml + 
                                 `</div>
-                            </div>`+ itemname + `</div>
+                            </div>
+                            <p>`+ itemname + `<br><b>` + itemprice + `</b></p>
+                            <figcaption>`
+                            + itemdesc + `</figcaption>
+                            </div>
                         </div>`
     }else{
         buttonhtml = `<button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>`;
@@ -116,13 +141,12 @@ function createNewItem(){
                                 <div class="w3-display-middle w3-display-hover">`
                                 + buttonhtml + 
                                 `</div>
-                            </div>`
-                            +  itemname +
-                            `</div>
+                            </div>
+                            <p>`+ itemname + `</p>
+                            </div>
                         </div>`
-    }
-    
-    
+    };
+    document.getElementById('newitem').style.display='none';
     
 }
 
