@@ -5,11 +5,11 @@
             "data": [
                 {"id":"simple_sundae", "hasFlavors":true, "name":"Simple Sundae", "description":"Ice Cream Sundae with chocolate fudge. Served with whipped cream and rainbow sprinkles.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
                 {"id":"cereal_sundae", "hasFlavors":false, "name":"Cereal Ice Cream Sundae with Cereal Bowl", "description":"Cereal flavored Ice Cream served in a cereal bowl. Topped with whipped cream and cherries.", "price":8.99, "imgSrc":"images/icecream2.jpg"},
-                {"id":"fudge_sundae", "hasFlavors":true, "name":"Chocolate Fudge Sundae", "description":"White Chocolate Fudge flavored Ice Cream. Topped with chocolate fudge, whipped cream, and vanilla wafers.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"brownie_sundae", "hasFlavors":false, "name":"Chocolate Fudge Brownie Sundae", "description":"Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"banana_sundae", "hasFlavors":true, "name":"Banana Split Sundae", "description":"Banana Split Topped with whipped cream, cherries, and pecans.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"strawberry_sundae", "hasFlavors":false, "name":"Strawberry Sundae", "description":"Strawberry Ice Cream with strawberry sauce topped with whipped cream.", "price":5.99, "imgSrc":"images/icecream1.jpg"},
-                {"id":"fried_sundae", "hasFlavors":false, "name":"Fried Ice Cream Sundae", "description":"Fried Ice Cream flavored with fried bits. Topped with whipped cream and cherries.", "price":5.99, "imgSrc":"images/icecream1.jpg"}
+                {"id":"fudge_sundae", "hasFlavors":true, "name":"Chocolate Fudge Sundae", "description":"White Chocolate Fudge flavored Ice Cream. Topped with chocolate fudge, whipped cream, and vanilla wafers.", "price":5.99, "imgSrc":"images/icecream3.jpg"},
+                {"id":"brownie_sundae", "hasFlavors":false, "name":"Chocolate Fudge Brownie Sundae", "description":"Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry.", "price":5.99, "imgSrc":"images/icecream4.jpg"},
+                {"id":"banana_sundae", "hasFlavors":true, "name":"Banana Split Sundae", "description":"Banana Split Topped with whipped cream, cherries, and pecans.", "price":5.99, "imgSrc":"images/icecream5.jpg"},
+                {"id":"strawberry_sundae", "hasFlavors":false, "name":"Strawberry Sundae", "description":"Strawberry Ice Cream with strawberry sauce topped with whipped cream.", "price":5.99, "imgSrc":"images/icecream6.jpg"},
+                {"id":"fried_sundae", "hasFlavors":false, "name":"Fried Ice Cream Sundae", "description":"Fried Ice Cream flavored with fried bits. Topped with whipped cream and cherries.", "price":5.99, "imgSrc":"images/icecream7.jpg"}
             ]
         },
         {
