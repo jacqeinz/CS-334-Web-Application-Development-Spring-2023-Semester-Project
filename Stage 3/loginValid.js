@@ -16,14 +16,13 @@ function setupTypes(db) {
   db.transaction(["login"]).objectStore("login").getAll().onsuccess = (
     event
   ) => {
-    print("Setup types.");
+ 
     const types = event.target.result;
     const loginForm = document.getElementById("loginForm");
     for (type of types) {
       const usernameInput = document.getElementById("username");
       const passwordInput = document.getElementById("password");
-      print("Finish getting elements.");
-
+    
       loginForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const username = usernameInput.value.trim();

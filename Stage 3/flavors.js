@@ -39,6 +39,7 @@ function setupTypes(db) {
       let input = document.createElement("input");
       input.type = "checkbox";
       input.id = type.id;
+      input.onclick = checkboxValidate;
 
       column.append(img);
       column.append(label);
@@ -49,13 +50,49 @@ function setupTypes(db) {
   };
 }
 
-//get count of flavors, limit amount of flavors, pass to cart
-
-function goToFlavors(type) {
-  console.log(type);
-  window.location.href = "flavors.html?type=flavors&id=" + type;
+function checkboxValidate(){
+  const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  if(checkedBoxes.length >= 3){
+    const uncheckedBoxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+    for(box of uncheckedBoxes){
+      box.disabled = true;
+    }
+  } else{
+    const disabledBoxes = document.querySelectorAll('input[type="checkbox"]:disabled');
+    for(box of disabledBoxes){
+      box.disabled = false;
+    }
+  }
 }
 
-function addToCart(type) {
-  console.log(type);
+//get count of flavors, limit amount of flavors, pass to cart
+function addToCart() {
+  const queryString = new URLSearchParams(window.location.search);
+  let type, id;
+
+  if(!queryString.has("type") || !queryString.has("id")){
+    //YELL AT USER
+    console.log("queryStringError")
+    console.log(queryString.get("type"))
+    console.log(queryString.get("id"))
+    return;
+  }
+  type = queryString.get("type");
+  id = queryString.get("id");
+
+  const checkedFlavors = document.querySelectorAll('input[type="checkbox"]:checked');
+  let flavorString = "";
+  if(checkedFlavors < 1){
+    //Yell at user
+    return;
+  }
+  for(i = 0; i < checkedFlavors.length; i++){
+    flavorString += checkedFlavors[i].id;
+    if(i < checkedFlavors.length - 1){
+      flavorString += ",";
+    }
+  }
+
+
+  window.location.href = "shoppingcart.html?type="+type+"&id=" + id + "&flavors=" + flavorString;
 }

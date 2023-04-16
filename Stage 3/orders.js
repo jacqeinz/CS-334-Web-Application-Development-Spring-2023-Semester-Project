@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function setupTypes(db) {
-  db.transaction(["coneType"]).objectStore("coneType").getAll().onsuccess =
+  db.transaction(["orders"]).objectStore("orders").getAll().onsuccess =
     (event) => {
       const types = event.target.result;
       const productsDiv = document.getElementById("products");
@@ -48,19 +48,11 @@ function setupTypes(db) {
 
         let nameP = document.createElement("p");
         let nameContent = document.createTextNode(type.name)
-        let nameBr = document.createElement("br");
-        let priceB = document.createElement("b");
         let priceContent = document.createTextNode("$" + type.price);
         containerDiv.append(nameP);
         nameP.append(nameContent);
-        nameP.append(nameBr);
-        nameP.append(priceB);
         priceB.append(priceContent);
 
-        let figcaption = document.createElement("figcaption");
-        let captionContent = document.createTextNode(type.description);
-        containerDiv.append(figcaption);
-        figcaption.append(captionContent);
 
         productsDiv.append(column);
       }
@@ -78,6 +70,6 @@ function goToFlavors(type) {
 }
 
 function addToCart(type) {
+
   console.log(type);
-  window.location.href=" cart.html?type=cones&id="+type;
 }
