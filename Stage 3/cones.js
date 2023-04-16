@@ -74,10 +74,10 @@ function setupTypes(db) {
 
 function goToFlavors(type) {
   console.log(type);
-  window.location.href = "flavors.html?type=cones&id="+type;
+  window.location.href = "flavors.html?type=cone&id="+type;
 }
 
 function addToCart(type) {
   console.log(type);
-  window.location.href=" cart.html?type=cones&id="+type;
+  window.location.href="shoppingcart.html?type=cone&id="+type;
 }

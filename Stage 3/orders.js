@@ -63,13 +63,3 @@ function setupTypes(db) {
 // for (let bt of btns_flavors) {
 //   bt.addEventListener("click", addToCart(e));
 // }
-
-function goToFlavors(type) {
-  console.log(type);
-  window.location.href = "flavors.html?type=cones&id="+type;
-}
-
-function addToCart(type) {
-
-  console.log(type);
-}

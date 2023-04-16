@@ -74,4 +74,5 @@ function goToFlavors(type) {
 
 function addToCart(type) {
   console.log(type);
+  window.location.href="shoppingcart.html?type=frap&id="+type;
 }

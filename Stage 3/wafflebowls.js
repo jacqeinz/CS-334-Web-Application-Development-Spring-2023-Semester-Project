@@ -70,9 +70,10 @@ function setupTypes(db) {
 
 function goToFlavors(type) {
   console.log(type);
-  window.location.href = "flavors.html?type=wafflebowls&id=" + type;
+  window.location.href = "flavors.html?type=wafflebowl&id=" + type;
 }
 
 function addToCart(type) {
   console.log(type);
+  window.location.href="shoppingcart.html?type=wafflebowl&id="+type;
 }
