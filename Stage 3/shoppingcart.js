@@ -1,3 +1,23 @@
+setupDbConnection();
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  let db;
+  const request = indexedDB.open("RollingStoneIceCreamStage3");
+  request.onerror = (event) => {
+    console.error("Failed to open IndexedDb");
+  };
+  request.onsuccess = (event) => {
+    db = event.target.result;
+    setupTypes(db);
+  };
+
+  // let confirmation = confirm("Do you wish to add this to the cart?");
+
+  // window.location.href = "SimpleSundaeFlavors.html";
+});
+
+
 /* get cart total from session on load */
 updateCartTotal();
 
