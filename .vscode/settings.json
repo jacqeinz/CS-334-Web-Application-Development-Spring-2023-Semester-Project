@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "Stage 4"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
