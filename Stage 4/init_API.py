@@ -144,6 +144,10 @@ def index():
 def milkshakes():
     return render_template('/milkshakes.html')
 
+@app.route('/smoothies.html')
+def smoothies():
+    return render_template('/smoothies.html')
+
 @app.route('/sundaes.html')
 def sundaes():
     return render_template('/sundaes.html')
@@ -151,6 +155,27 @@ def sundaes():
 @app.route('/snowcones.html')
 def snowcones():
     return render_template('/snowcones.html')
+
+@app.route('/frap.html')
+def frap():
+    return render_template('/frap.html')
+
+@app.route('/wafflebowls.html')
+def wafflebowls ():
+    return render_template('/wafflebowls.html')
+
+@app.route('/flavors.html')
+def flavors():
+    return render_template('/flavors.html')
+
+@app.route('/cones.html')
+def cones():
+    return render_template('/cones.html')
+
+@app.route('/shoppingcart.html')
+def cones():
+    return render_template('/shoppingcart.html')
+
 
 
 myId = 'abc123'
