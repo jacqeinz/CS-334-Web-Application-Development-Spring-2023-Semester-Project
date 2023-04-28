@@ -173,7 +173,7 @@ def cones():
     return render_template('/cones.html')
 
 @app.route('/shoppingcart.html')
-def cones():
+def shoppingcart():
     return render_template('/shoppingcart.html')
 
 
