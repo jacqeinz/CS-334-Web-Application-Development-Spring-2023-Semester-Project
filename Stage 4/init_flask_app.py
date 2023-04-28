@@ -141,6 +141,19 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/milkshakes.html')
+def milkshakes():
+    return render_template('/milkshakes.html')
+
+@app.route('/sundaes.html')
+def sundaes():
+    return render_template('/sundaes.html')
+
+@app.route('/snowcones.html')
+def snowcones():
+    return render_template('/snowcones.html')
+
+
 
 
 if __name__ == "__main__":

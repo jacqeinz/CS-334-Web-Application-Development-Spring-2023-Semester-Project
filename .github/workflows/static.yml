@@ -35,8 +35,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload Stage 3 folder
-          path: Stage 3/
+          # Upload Stage 4 folder
+          path: Stage 4
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
