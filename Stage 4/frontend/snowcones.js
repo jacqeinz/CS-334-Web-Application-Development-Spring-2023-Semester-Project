@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setupTypes(db);
   };
 
-  const apiRequest = fetch('/api/test');
-  apiRequest.then((response) => console.log(response.json()));
+  const apiRequest = fetch('/api/getSnowcones');
+  apiRequest.then((response) => response.json())
+    .then((data) => console.log(data));
 
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
