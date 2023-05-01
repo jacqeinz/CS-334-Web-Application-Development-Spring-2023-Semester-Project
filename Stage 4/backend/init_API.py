@@ -1,7 +1,7 @@
 # config.py #app.py #
 
 
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
 from sqlalchemy import Column, ForeignKey, Integer, Unicode
@@ -25,11 +25,6 @@ db = SQLAlchemy(app)
 #push context
 app.app_context().push()
 
-
-
-fetch('defaultData.json')
-    .then(res => res.json())
-    .then(json => console.log(json))
 
 # tables
 
@@ -174,22 +169,14 @@ def __init__(flavor, name, data):
 
 
 
-@app.route('/')
-def index():
-    return index
 
-@app.route('/milkshakes')
-def milkshake_page():
-        milkshake = get_current_milkshake()
-        return{
-            "id":milkshake.id,
-            "name": milkshake.name,
-            "hasFlavors": milkshake.hasFlavors,
-            "Price": milkshake.Price,
-            "data": url_for("milkshake_image", filename=milkshake.data),
+@api.route('api/test')
+def test_api():
+    return jsonify({'test':'success',
+                    'anothertest': 'anothersuccess'})
 
-        }
-@app.route('milkshakes.html')
+
+@app.route('api/getMilkshakes')
 def milkshakes_api():
     milkshakes = get_all_milkshakes()
     return jsonify([milkshake.to_json() for milkshake in milkshakes])
