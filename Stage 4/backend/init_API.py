@@ -170,13 +170,13 @@ def __init__(flavor, name, data):
 
 
 
-@api.route('api/test')
+@app.route('/api/test')
 def test_api():
     return jsonify({'test':'success',
                     'anothertest': 'anothersuccess'})
 
 
-@app.route('api/getMilkshakes')
+@app.route('/api/getMilkshakes')
 def milkshakes_api():
     milkshakes = get_all_milkshakes()
     return jsonify([milkshake.to_json() for milkshake in milkshakes])
