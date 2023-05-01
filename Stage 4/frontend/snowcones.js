@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const apiRequest = fetch('/api/test');
-  apiRequest.then((data) => console.log(data));
+  apiRequest.then((response) => console.log(response.json()));
 
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
