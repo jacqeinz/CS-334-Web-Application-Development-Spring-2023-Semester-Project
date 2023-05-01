@@ -20,12 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // window.location.href = "SimpleSundaeFlavors.html";
 });
 
-function setupTypes(db) {
-  db.transaction(["snowConeType"]).objectStore("snowConeType").getAll().onsuccess =
-    (event) => {
-      const types = event.target.result;
+function setupTypes(data) {
       const productsDiv = document.getElementById("products");
-      for (type of types) {
+      for (type of data) {
         let column = document.createElement("div");
         if (type.hasFlavors) {
           column.classList.add("w3-col", "l3", "s6", "goToFlavors");
