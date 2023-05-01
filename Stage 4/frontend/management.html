@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rolling Stone Ice Cream Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .w3-sidebar a {font-family: "Roboto", sans-serif}
+    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+    </style>
+</head>
+<body>
+    <!-- Sidebar Menu -->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+        <div class="w3-container w3-display-container w3-padding-16">
+          <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+          <h3 class="w3-wide"><b>Rolling Stone Management</b></h3>
+        </div>
+        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+          <a href="#ice_cream" class="w3-bar-item w3-button">Ice Cream</a>
+          <a href="#blended_beverages" class="w3-bar-item w3-button">Blended Beverages</a>
+          <a href="#scones" class="w3-bar-item w3-button">Snowcones</a>
+          <a href="orders.html" class="w3-bar-item w3-button">Orders</a>
+        </div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding w3-round-medium" onclick="document.getElementById('newitem').style.display='block'">New Item</a>
+    </nav>
+
+    <!-- formatting -->
+    <!-- Top menu on small screens -->
+    <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+        <div class="w3-bar-item w3-padding-24 w3-wide">Ice Cream Shop</div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    </header>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    
+    <!-- PAGE CONTENT -->
+    <div class="w3-main" style="margin-left:250px">
+  
+        <!-- Push down content on small screens -->
+        <div class="w3-hide-large" style="margin-top:83px"></div>
+        
+        <!-- Top header -->
+        <header class="w3-container w3-xlarge">
+          <p class="w3-left">Item Management</p>
+          <p class="w3-right">
+            <i class="fa fa-search"></i>
+          </p>
+        </header>
+
+        <!-- Ice Cream -->
+        <hr>
+        <a id = "ice_cream"></a>
+        <div class="w3-display-container w3-container">
+          <img src="images/header3.jpg" alt="Ice Cream" style="width:100%">
+          <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+            <h1 class="w3-jumbo w3-hide-small"style ="color: #261532">Ice Cream</h1>
+            <h1 class="w3-hide-large w3-hide-medium"style ="color: #261532">Ice Cream</h1>
+          </div>
+        </div>
+      
+        <!-- Ice Cream: Flavors-->
+        <h2 class = "w3-container w3-xlarge">Ice Cream Flavors</h2>
+        <div class="w3-row">
+          <div id="flavors">
+
+          </div>
+        
+      
+          
+        <!--Ice cream: Sundaes -->
+        <h2 class = "w3-container w3-xlarge">Sundaes</h2>
+        <div class="w3-row">
+          <div id = "sundaes">
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream1.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Simple Sundae<br><b>$5.99</b></p>
+                <figcaption>Ice Cream Sundae with chocolate fudge. Served with whipped cream and rainbow sprinkles.</figcaption>
+              </div>
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream2.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Cereal Ice Cream Sundae with Cereal Bowl<br><b>$8.99</b></p>
+                <figcaption>Cereal flavored Ice Cream served in a cereal bowl. Topped with whipped cream and cherries. </figcaption>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream3.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Chocolate Fudge Sundae<br><b>$6.99</b></p>
+                <figcaption>White Chocolate Fudge flavored Ice Cream. Topped with chocolate fudge, whipped cream, and vanilla wafers. </figcaption>
+              </div>
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream4.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Chocolate Fudge Brownie Sundae<br><b>$8.99</b></p>
+                <figcaption>Chocolate Fudge flavored Brownie. Served with ice cream of choice. Topped with Chocolate Fudge, whipped cream, and a cherry. </figcaption>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream5.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Banana Split<br><b>$7.99</b></p>
+                <figcaption>Banana Split Topped with whipped cream, cherries, and pecans.</figcaption>
+              </div>
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream6.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Strawberry Sundae<br><b>$7.99</b></p>
+                <figcaption>Strawberry Ice Cream with strawberry sauce topped with whipped cream.</figcaption>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream7.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Fried Ice Cream Sundae<br><b>$9.99</b></p>
+                <figcaption>Fried Ice Cream flavored with fried bits. Topped with whipped cream and cherries. </figcaption>
+              </div>
+            </div>
+          </div>
+
+        <!--Ice cream: Cones -->
+        <h2 class = "w3-container w3-xlarge">Cones</h2>
+        <div class="w3-row">
+            <div id="cones">
+              <div class="w3-col l3 s6">
+                <div class="w3-container">
+                  <div class="w3-display-container">
+                    <img src="images/dipped-ice-cream-cones-8-480x270.jpg"style="width:100%" >
+                    <div class="w3-display-middle w3-display-hover">
+                      <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                    </div>
+                  </div>
+                  <p>Chocolate Dipped Cone with Rainbow Sprinkles<br><b>$6.99</b></p>
+                </div>
+              </div>
+              <div class="w3-col l3 s6">
+                <div class="w3-container">
+                  <div class="w3-display-container">
+                    <img src="images/cone4.jpg"style="width:100%" >
+                    <div class="w3-display-middle w3-display-hover">
+                      <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                    </div>
+                  </div>
+                  <p>Chocolate Dipped Cone<br><b>$6.99</b></p>
+                </div>
+              </div>
+              <div class="w3-col l3 s6">
+                <div class="w3-container">
+                  <div class="w3-display-container">
+                    <img src="images/cone5.jpg"style="width:100%" >
+                    <div class="w3-display-middle w3-display-hover">
+                      <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                    </div>
+                  </div>
+                  <p>Plain Waffle Cone<br><b>$5.99</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <!--Ice cream: Bowls -->
+        <h2 class = "w3-container w3-xlarge">Bowls</h2>
+        <div class="w3-row">
+          <div id="bowls">
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/depositphotos_20239945-stock-photo-macro-chocolate-sundae-with-cherry.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Waffle Bowl<br><b>$6.99</b></p>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/icecream2.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Cereal Bowl<br><b>$6.99</b></p>
+              </div>
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/waffleBowlS.png"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Waffle Bowl Sundae<br><b>$9.99</b></p>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/chocolatebowl.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Chocolate Dipped Waffle Bowl<br><b>$7.99</b></p>
+              </div>
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/wafflebowl.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Brownie Sundae Chocolate Waffle Bowl<br><b>$9.99</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Blended Beverages -->
+        </div>
+        <a id="blended_beverages"></a>
+        <hr>
+        <div class="w3-display-container w3-container">
+          <img src="images/header3.jpg" alt="Blended Beverages" style="width:100%">
+          <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+            <h1 class="w3-jumbo w3-hide-small" style ="color: #261532">Blended Beverages</h1>
+          </div>
+        </div>
+
+        <!-- Blended Beverages: Milkshakes-->
+        <h2 class = "w3-container w3-xlarge">Milkshakes</h2>
+        <div class="w3-row">
+          <div id="milkshakes">
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/milkshake2.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Princess Dreams Milkshake<br><b>$10.99</b></p>
+                <figcaption> A cotton candy flavored milkshake with strawberry frosting and marshmallow decorations</figcaption>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/tiramisu-milkshake-hero.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Tiramisu Milkshake<br><b>$10.99</b></p>
+                <figcaption>A tiramisu flavored milkshake. Topped with whipped cream, chocolate fudge, and espresso soaked lady fingers.</figcaption>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/milkshake3.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Chocolate Fudge Smoothie<br><b>$10.99</b></p>
+                <figcaption> A creamy chocolate fudge milkshake made with Ghirardelli Chocolate. Topped with whipped cream and a square of Ghirardelli chocolate.</figcaption>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/strawberry-banana-milkshake-featured-pic.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Strawberry Pankake Milkshake<br><b>$10.99</b></p>
+                <figcaption>A strawberry and pancake flavored milkshake. Topped with mini strawberry pancakes and whipped cream.</figcaption>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+        <!-- Blended Beverages: Smoothies -->
+        <h2 class = "w3-container w3-xlarge">Smoothies</h2>
+        <div class="w3-row">
+          <div id="smoothies">
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/smoothie1.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Citrus Smoothie<br><b>$6.99</b></p>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/smoothie2.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Greens Smoothie<br><b>$6.99</b></p>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/smoothiejpg.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Berry Smoothie<br><b>$6.99</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Blended Beverages: Frappuccinos-->
+        <h2 class = "w3-container w3-xlarge">Frappuccinos</h2>
+        <div class="w3-row">
+          <div id="fraps">
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/Starbucks-Mocha-Frappuccino.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Mocha<br><b>$5.99</b></p>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/frap.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-display-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Caramel<br><b>$5.99</b></p>
+              </div>
+            </div>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <div class="w3-display-container">
+                  <img src="images/frap2.jpg"style="width:100%" >
+                  <div class="w3-display-middle w3-sdisplay-hover">
+                    <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                  </div>
+                </div>
+                <p>Strawberries and Cream Frappuccino<br><b>$5.99</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Snowcones -->
+      </div>
+      <hr>
+      <a id = "scones"></a>
+      <div class="w3-display-container w3-container">
+        <img src="images/header3.jpg" alt="Snowcones" style="width:100%">
+        <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+          <h1 class="w3-jumbo w3-hide-small" style ="color: #240b36">Snowcones</h1>
+        </div>
+      </div>
+
+      <h2 class = "w3-container w3-xlarge">All Snowcones</h2>
+
+      <!-- Snowcone Options -->
+      <div class="w3-row">
+        <div id="snowcones">
+          <div class="w3-col l3 s6">
+            <div class="w3-container">
+              <div class="w3-display-container">
+                <img src="images/snowconeflower.jpeg"style="width:100%" >
+                <div class="w3-display-middle w3-display-hover">
+                  <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+              <p>SnowCone Flower<br><b>$8.99</b></p>
+              <figcaption>Rainbow snowcone flower with blue coconut, vanilla bean, mango, and strawberry flavors.</figcaption>
+            </div>
+          </div>
+          <div class="w3-col l3 s6">
+            <div class="w3-container">
+              <div class="w3-display-container">
+                <img src="images/snowcone2.jpg"style="width:100%" >
+                <div class="w3-display-middle w3-display-hover">
+                  <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+              <p>Strawberry Vanilla SnowCone<br><b>$10.99</b></p>
+              <figcaption>SnowCone Mountain with starwberry and vanilla bean flavored ice. Topped with strawberry jam, strawberry slices, and whipped cream.</figcaption>
+            </div>
+          </div>
+          <div class="w3-col l3 s6">
+            <div class="w3-container">
+              <div class="w3-display-container">
+                <img src="images/snowcone1.jpg"style="width:100%" >
+                <div class="w3-display-middle w3-display-hover">
+                  <button class="w3-button w3-black" onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+              <p>Tropical Fruit SnowCone<br><b>$10.99</b></p>
+              <figcaption>SnowCone Mountain with mango, vanilla, and strawberry flavored ice. Served with mango slices, strawberry slices, and whipped cream. </figcaption>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--End Page Content-->
+    </div>
+    
+    <!-- Item Edit Modal -->
+    <div id="edit_tab" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+        <div class="w3-container w3-white w3-center">
+          <i onclick="document.getElementById('edit_tab').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+          <h2 class="w3-wide">EDIT</h2>
+          
+          <div class="w3-display-container"style="margin:auto;max-width:300px;max-height:fit;">
+            <img src="" id="populateImage" style="width:100%">
+          </div>
+          <p><input type="file" accept = "image/jpeg, image/png" onchange = "changeImage()" id="editImg"></p>
+          <p><input class = "w3-input w3-border" type="text" placeholder="Item name" id="editName"></p>
+          <p><input class="w3-input w3-border" type="number" placeholder="Item price" id="editPrice"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Item Description" id="editDesc"></p>
+          <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="deleteItem" onclick="deleteItem()">Delete Item</button>
+          <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="saveItem" onclick="updateItem()">Save Changes</button>
+          
+        </div>
+      </div>
+    </div>
+    <!-- New Item Modal -->
+    <div id="newitem" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+        <div class="w3-container w3-white w3-center">
+          <i onclick="document.getElementById('newitem').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+          <h2 class="w3-wide">NEW ITEM</h2>
+          <div class="w3-display-container"style="margin:auto;max-width:300px;max-height:fit-content;">
+            <img src="" id="newImage" style="width:100%">
+          </div>
+          <p><input type="file" accept = "image/jpeg, image/png" onchange = "uploadImage()" id="uploadImg"></p>
+          <p><input class = "w3-input w3-border" type="text" placeholder="Item name" id="nameEdit" value=""></p>
+          <p><input class="w3-input w3-border" type="number" placeholder="Item price" id="priceEdit" value=""></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Item Description" id="descEdit" value=""></p>
+          <p class="w3-input w3-border"><label for="category">Item Category:</label>
+          <select name="category" id="category">
+            <option value="flavors">Flavor</option>
+            <option value="sundaes" selected>Sundae</option>
+            <option value="cones">Cone</option>
+            <option value="bowls">Bowl</option>
+            <option value="milkshakes">Milkshake</option>
+            <option value="smoothies">Smoothie</option>
+            <option value="fraps">Frap</option>
+            <option value="snowcones">Snowcone</option>
+          </select></p>
+          <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="cancel" onclick="document.getElementById('newitem').style.display='none'">Cancel</button>
+          <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="createItem" onclick="createNewItem(this)">Create Item</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+      
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+    </script>
+    <script type="text/javascript" src="management.js"></script> 
+</body>
+</html>
