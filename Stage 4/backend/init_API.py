@@ -77,7 +77,7 @@ class bowls(db.Model):
     
 
 # initialize db
-    def __init__(bowl, id, name, has_flavors, price, data):
+    def __init__(bowl, id, has_flavors, name, price, data):
         bowl.id = id
         bowl.name = name
         bowl.has_flavors = has_flavors
