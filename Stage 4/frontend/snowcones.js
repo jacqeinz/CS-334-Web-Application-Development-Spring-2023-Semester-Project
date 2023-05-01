@@ -8,13 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   request.onsuccess = (event) => {
     db = event.target.result;
-    setupTypes(db);
   };
 
   const apiRequest = fetch("/api/getSnowcones");
   apiRequest
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => setupTypes(data.data));
 
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function setupTypes(data) {
+  console.log(data)
   const productsDiv = document.getElementById("products");
   for (type of data) {
     let column = document.createElement("div");

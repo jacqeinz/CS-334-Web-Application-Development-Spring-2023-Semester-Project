@@ -189,7 +189,7 @@ def get_snowcones_api():
             'price': item.price,
             'imgSrc': item.data.decode('utf-8')
         })
-    return json.dumps(result_list)
+    return json.dumps({'data':result_list})
 
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
