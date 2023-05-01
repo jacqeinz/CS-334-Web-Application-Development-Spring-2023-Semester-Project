@@ -176,6 +176,10 @@ def cones():
 def shoppingcart():
     return render_template('/shoppingcart.html')
 
+@app.route('/Checkout.html')
+def checkout():
+    return render_template('/Checkout.html')
+
 
 
 myId = 'abc123'
