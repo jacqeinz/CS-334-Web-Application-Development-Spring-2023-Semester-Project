@@ -65,6 +65,13 @@
             ]
         },
         {
+            "name":"orders",
+            "data": [
+
+            ]
+                
+        },
+        {
             "name":"flavors",
             "data": [
                 {"id":"tiramisu", "name":"Tiramisu", "imgSrc":"images/tiramisu.JPG"},

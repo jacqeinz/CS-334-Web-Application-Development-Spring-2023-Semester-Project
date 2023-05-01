@@ -160,7 +160,7 @@ class flavors (db.Model):
         flavor.name = name
         flavor.data = data
  
-class orders (db.Model):
+#class orders (db.Model):
 
 
 
