@@ -37,15 +37,15 @@ class sundaes (db.Model):
     description = db.Column(db.String(50))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
-
+   
 # initialize db
-def __init__(sundae, name, has_flavors, description, price, data):
-   sundae.name = name
-   sundae.has_flavors = has_flavors
-   sundae.description = description
-   sundae.price = price
-   sundae.data = data
+    def __init__(sundae, id, name, has_flavors, description, price, data):
+        sundae.id = id
+        sundae.name = name
+        sundae.has_flavors = has_flavors
+        sundae.description = description
+        sundae.price = price
+        sundae.data = data
 
 #cones
 class cones (db.Model):
@@ -54,16 +54,16 @@ class cones (db.Model):
     has_flavors = db.Column(db.String(10))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
-
+    
     
 # initialize db
 
-def __init__(cone, name, has_flavors, price, data):
-   cone.name = name
-   cone.has_flavors = has_flavors
-   cone.price = price
-   cone.data = data
+    def __init__(cone, id, name, has_flavors, price, data):
+        cone.id = id
+        cone.name = name
+        cone.has_flavors = has_flavors
+        cone.price = price
+        cone.data = data
 
 
 
@@ -74,28 +74,30 @@ class bowls(db.Model):
     has_flavors = db.Column(db.String(10))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
+    
 
 # initialize db
-def __init__(bowl, name, has_flavors, price, data):
-   bowl.name = name
-   bowl.has_flavors = has_flavors
-   bowl.price = price
-   bowl.data = data
+    def __init__(bowl, id, name, has_flavors, price, data):
+        bowl.id = id
+        bowl.name = name
+        bowl.has_flavors = has_flavors
+        bowl.price = price
+        bowl.data = data
 
 
 #milkshakes
 class milkshakes (db.Model):
     id = db.Column('milkshake_id', db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-    has_flavors = db.Column(db.String(10))
+    description = db.Column(db.String(10))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
+  
     # initialize db
-    def __init__(milkshake, name, has_flavors, price, data):
+    def __init__(milkshake, id, name, description, price, data):
+        milkshake.id = id
         milkshake.name = name
-        milkshake.has_flavors = has_flavors
+        milkshake.description = description
         milkshake.price = price
         milkshake.data = data
 
@@ -104,15 +106,14 @@ class milkshakes (db.Model):
 class smoothies (db.Model):
     id = db.Column('smoothie_id', db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-    has_flavors = db.Column(db.String(10))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
+   
     
     # initialize db
-    def __init__(smoothie, name, has_flavors, price, data):
+    def __init__(smoothie, id, name, description, price, data):
+        smoothie.id = id
         smoothie.name = name
-        smoothie.has_flavors = has_flavors
         smoothie.price = price
         smoothie.data = data
   
@@ -121,17 +122,16 @@ class smoothies (db.Model):
 class frappes (db.Model):
     id = db.Column('frappe_id', db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-    has_flavors = db.Column(db.String(10))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
+ 
   
 # initialize db
-def __init__(frappe, name, has_flavors, price, data):
-   frappe.name = name
-   frappe.has_flavors = has_flavors
-   frappe.price = price
-   frappe.data = data
+    def __init__(frappe, id, name, price, data):
+        frappe.id = id
+        frappe.name = name
+        frappe.price = price
+        frappe.data = data
 
 
 #snowcone
@@ -149,9 +149,6 @@ class snowcones (db.Model):
         snowcone.price = price
         snowcone.description = description
         snowcone.data = data 
-    # def toJson(self):
-    #     return json.dumps(self, default=lambda o: o.__dict__)
-
 
 
 #snowcone
@@ -159,13 +156,14 @@ class flavors (db.Model):
     id = db.Column('flavors_id', db.Integer, primary_key=True)
     name = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
-    rendered_data = db.Column(db.Text, nullable=False)#Data to render the pic in browser
+   
   
 # initialize db
-def __init__(flavor, name, data):
+    def __init__(flavor, id, name, data):
    #display you can only use 3 flavors
-   flavor.name = name
-   flavor.data = data
+        flavor.id = id
+        flavor.name = name
+        flavor.data = data
  
 
 
@@ -175,6 +173,7 @@ def __init__(flavor, name, data):
 def test_api():
     return jsonify({'test':'success',
                     'anothertest': 'anothersuccess'})
+
 
 
 @app.route('/api/getSnowcones')
@@ -191,6 +190,102 @@ def get_snowcones_api():
         })
     return json.dumps({'data':result_list})
 
+@app.route('/api/getCones')
+def get_cones_api():
+    results = cones.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,            
+            "name": item.name,
+            "has_flavors": item.has_flavors,
+            'price': item.price,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
+@app.route('/api/getSundaes')
+def get_sundaes_api():
+    results = sundaes.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,
+            "name": item.name,
+            "has_flavors": item.has_flavors,
+            "description": item.description,
+            'price': item.price,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
+@app.route('/api/getWaffleBowls')
+def get_waffles_api():
+    results = bowls.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,
+            "has_flavors": item.has_flavors,
+            "name": item.name,
+            "description": item.description,
+            'price': item.price,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
+@app.route('/api/getSmoothies')
+def get_smoothies_api():
+    results = smoothies.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,
+            "name": item.name,
+            'price': item.price,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
+@app.route('/api/getMilkshakes')
+def get_milkshakes_api():
+    results = milkshakes.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,
+            "name": item.name,
+            "description": item.description,
+            'price': item.price,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
+@app.route('/api/getFrappe.html')
+def get_frappes_api():
+    results = frappes.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,
+            "name": item.name,
+            'price': item.price,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
+@app.route('/api/getFlavors')
+def get_flavors_api():
+    results = flavors.query.all()
+    result_list = []
+    for item in results:
+        result_list.append({
+            "id": item.id,
+            "name": item.name,
+            'imgSrc': item.data.decode('utf-8')
+        })
+    return json.dumps({'data':result_list})
+
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
     f = open(json_url)
@@ -202,6 +297,55 @@ def reset_db_data_api():
             for item in i['data']:
                 snowcone = snowcones(item['id'], item['name'], item['price'], item['description'], item['imgSrc'].encode('utf-8'))
                 db.session.add(snowcone)
+                db.session.commit()
+        if i['name'] == 'sundaeType':
+            db.session.query(sundaes).delete()
+            db.session.commit()
+            for item in i['data']:
+                sundae = sundaes(item['id'], item['hasFlavors'], item['name'], item['description'], item['price'], item['imgSrc'].encode('utf-8'))
+                db.session.add(sundae)
+                db.session.commit()
+        if i['name'] == 'coneType':
+            db.session.query(cones).delete()
+            db.session.commit()
+            for item in i['data']:
+                cone = cones(item['id'], item['name'], item['has_flavors'], item['price'], item['imgSrc'].encode('utf-8'))
+                db.session.add(cone)
+                db.session.commit()
+        if i['name'] == 'bowlType':
+            db.session.query(bowls).delete()
+            db.session.commit()
+            for item in i['data']:
+                bowl = bowls(item['id'], item['name'], item['price'], item['description'], item['imgSrc'].encode('utf-8'))
+                db.session.add(bowl)
+                db.session.commit()
+        if i['name'] == 'milkShakeType':
+            db.session.query(milkshakes).delete()
+            db.session.commit()
+            for item in i['data']:
+                milkshake = milkshakes(item['id'], item['name'], item['description'], item['price'],  item['imgSrc'].encode('utf-8'))
+                db.session.add(milkshake)
+                db.session.commit()
+        if i['name'] == 'smoothieType':
+            db.session.query(smoothies).delete()
+            db.session.commit()
+            for item in i['data']:
+                smoothie = smoothies(item['id'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
+                db.session.add(smoothie)
+                db.session.commit()
+        if i['name'] == 'frappeType':
+            db.session.query(frappes).delete()
+            db.session.commit()
+            for item in i['data']:
+                frap = frappes(item['id'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
+                db.session.add(frap)
+                db.session.commit()
+        if i['name'] == 'flavors':
+            db.session.query(flavors).delete()
+            db.session.commit()
+            for item in i['data']:
+                flavor = flavors(item['id'], item['name'], item['imgSrc'].encode('utf-8'))
+                db.session.add(flavor)
                 db.session.commit()
     return jsonify({'dbreset':'success'})
 

@@ -1,14 +1,6 @@
 setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
-  let db;
-  const request = indexedDB.open("RollingStoneIceCreamStage3");
-  request.onerror = (event) => {
-    console.error("Failed to open IndexedDb");
-  };
-  request.onsuccess = (event) => {
-    db = event.target.result;
-  };
 
   const apiRequest = fetch("/api/getSnowcones");
   apiRequest
