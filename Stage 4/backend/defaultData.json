@@ -64,13 +64,7 @@
                 {"id":"StrawCone", "name":"SnowCone Flower", "description":"SnowCone Mountain with starwberry and vanilla bean flavored ice. Topped with strawberry jam, strawberry slices, and whipped cream.", "price":10.99, "imgSrc":"images/snowcone2.jpg"}
             ]
         },
-        {
-            "name":"orders",
-            "data": [
-
-            ]
-                
-        },
+      
         {
             "name":"flavors",
             "data": [
