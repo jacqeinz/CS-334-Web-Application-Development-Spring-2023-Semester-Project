@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setupTypes(db);
   };
 
+  const apiRequest = fetch('/api/test');
+  apiRequest.then((data) => console.log(data));
+
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
   // window.location.href = "SimpleSundaeFlavors.html";
