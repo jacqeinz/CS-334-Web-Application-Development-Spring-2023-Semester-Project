@@ -2,10 +2,10 @@ setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
   
-  const apiRequest = fetch("/api/getFrappe");
+  const apiRequest = fetch("/api/getFrappes");
   apiRequest
     .then((response) => response.json())
-    .then((data) => setupTypes(data));
+    .then((data) => setupTypes(data.data));
 
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
