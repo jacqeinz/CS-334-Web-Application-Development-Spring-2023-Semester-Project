@@ -14,7 +14,7 @@ import json
 # COLLECT_STORAGE = 'flask_collect.storage.file'
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-#json_url = os.path.join(SITE_ROOT, "static", "defaultData.json")
+json_url = os.path.join(SITE_ROOT, "defaultData.json")
 #data = json.load(open(json_url))
 # create the app
 app = Flask(__name__)
@@ -193,7 +193,7 @@ def get_snowcones_api():
 
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
-    f = open(SITE_ROOT+'\defaultData.json')
+    f = open(json_url)
     data = json.load(f)
     for i in data['stores']:
         if i['name'] == 'snowConeType':
