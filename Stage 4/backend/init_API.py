@@ -228,7 +228,6 @@ def get_waffles_api():
             "id": item.id,
             "has_flavors": item.has_flavors,
             "name": item.name,
-            "description": item.description,
             'price': item.price,
             'imgSrc': item.data.decode('utf-8')
         })
