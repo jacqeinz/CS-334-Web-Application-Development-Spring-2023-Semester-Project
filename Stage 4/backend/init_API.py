@@ -31,7 +31,7 @@ app.app_context().push()
 
 #sundaes 
 class sundaes (db.Model):
-    id = db.Column('sundae_id', db.Integer, primary_key=True)
+    id = db.Column('sundae_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     has_flavors = db.Column(db.String(10))
     description = db.Column(db.String(50))
@@ -49,7 +49,7 @@ class sundaes (db.Model):
 
 #cones
 class cones (db.Model):
-    id = db.Column('cone_id', db.Integer, primary_key=True)
+    id = db.Column('cone_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     has_flavors = db.Column(db.String(10))
     price = db.Column(db.String(50))
@@ -69,7 +69,7 @@ class cones (db.Model):
 
 #bowls
 class bowls(db.Model):
-    id = db.Column('bowl_id', db.Integer, primary_key=True)
+    id = db.Column('bowl_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     has_flavors = db.Column(db.String(10))
     price = db.Column(db.String(50))
@@ -87,7 +87,7 @@ class bowls(db.Model):
 
 #milkshakes
 class milkshakes (db.Model):
-    id = db.Column('milkshake_id', db.Integer, primary_key=True)
+    id = db.Column('milkshake_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     description = db.Column(db.String(10))
     price = db.Column(db.String(50))
@@ -104,14 +104,14 @@ class milkshakes (db.Model):
 
 #smoothies table
 class smoothies (db.Model):
-    id = db.Column('smoothie_id', db.Integer, primary_key=True)
+    id = db.Column('smoothie_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
    
     
     # initialize db
-    def __init__(smoothie, id, name, description, price, data):
+    def __init__(smoothie, id, name, price, data):
         smoothie.id = id
         smoothie.name = name
         smoothie.price = price
@@ -120,7 +120,7 @@ class smoothies (db.Model):
 
 #frappe table
 class frappes (db.Model):
-    id = db.Column('frappe_id', db.Integer, primary_key=True)
+    id = db.Column('frappe_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     price = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
@@ -153,7 +153,7 @@ class snowcones (db.Model):
 
 #snowcone
 class flavors (db.Model):
-    id = db.Column('flavors_id', db.Integer, primary_key=True)
+    id = db.Column('flavors_id', db.String(50), primary_key=True)
     name = db.Column(db.String(50))
     data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
    
@@ -211,8 +211,8 @@ def get_sundaes_api():
     for item in results:
         result_list.append({
             "id": item.id,
-            "name": item.name,
             "has_flavors": item.has_flavors,
+            "name": item.name,
             "description": item.description,
             'price': item.price,
             'imgSrc': item.data.decode('utf-8')
@@ -261,7 +261,7 @@ def get_milkshakes_api():
         })
     return json.dumps({'data':result_list})
 
-@app.route('/api/getFrappe.html')
+@app.route('/api/getFrappes')
 def get_frappes_api():
     results = frappes.query.all()
     result_list = []
@@ -309,21 +309,21 @@ def reset_db_data_api():
             db.session.query(cones).delete()
             db.session.commit()
             for item in i['data']:
-                cone = cones(item['id'], item['name'], item['has_flavors'], item['price'], item['imgSrc'].encode('utf-8'))
+                cone = cones(item['id'], item['name'], item['hasFlavors'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(cone)
                 db.session.commit()
         if i['name'] == 'bowlType':
             db.session.query(bowls).delete()
             db.session.commit()
             for item in i['data']:
-                bowl = bowls(item['id'], item['name'], item['price'], item['description'], item['imgSrc'].encode('utf-8'))
+                bowl = bowls(item['id'], item['hasFlavors'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(bowl)
                 db.session.commit()
         if i['name'] == 'milkShakeType':
             db.session.query(milkshakes).delete()
             db.session.commit()
             for item in i['data']:
-                milkshake = milkshakes(item['id'], item['name'], item['description'], item['price'],  item['imgSrc'].encode('utf-8'))
+                milkshake = milkshakes(item['id'],item['name'], item['description'], item['price'],  item['imgSrc'].encode('utf-8'))
                 db.session.add(milkshake)
                 db.session.commit()
         if i['name'] == 'smoothieType':
