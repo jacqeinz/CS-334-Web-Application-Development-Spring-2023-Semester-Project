@@ -18,11 +18,20 @@ json_url = os.path.join(SITE_ROOT, "defaultData.json")
 app = Flask(__name__)
 # configure the SQLite database, relative to the app instance folder
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///defaultData.db'
-app.config['SECRET_KEY'] = "random string"
+app.config['SECRET_KEY'] = "SECRET_KEY"
 # initialize the app with the extension
 db = SQLAlchemy(app)
 #push context
 app.app_context().push()
+# mail= Mail(app)
+
+# app.config['MAIL_SERVER']='rollingstoneicecreamenmu@enmu.edu'
+# app.config['MAIL_PORT'] = 2525
+# app.config['MAIL_USERNAME'] = 'rollingstoneicecreamenmu@enmu.edu'
+# app.config['MAIL_PASSWORD'] = 'W@xTi58nR7'
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
+# mail = Mail(app)
 
 
 # tables
@@ -169,7 +178,27 @@ def test_api():
     return jsonify({'test':'success',
                     'anothertest': 'anothersuccess'})
 
+# #API to get items sold and their prices
+# @app.route('/api/shoppingcart')
+# def get_items_sold_api(items_list):
+#     items_sold = []
+#     for item in items_list:
+#         items_sold.append({
+#             "id": item.id, 
+#             "name": item.name, 
+#             "price": item.price 
+#         })
+#     return jsonify({'id': item.id, 'name': item.name, 'price':item.price})
 
+# #
+# @app.route('/api/checkout')
+# def send_email_api():
+#     #get recipient info
+#     get_items_sold_api()
+#     msg = Message('Thank you for your order! ', sender =   'rollingstoneicecreamenmu@gmail.com', recipients = ['order_email'])
+#     msg.body = "Here are your order details:"
+#     mail.send(msg)
+#     return "Message sent!"
 
 @app.route('/api/getSnowcones')
 def get_snowcones_api():

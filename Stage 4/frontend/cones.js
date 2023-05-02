@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   apiRequest
     .then((response) => response.json())
     .then((data) => setupTypes(data.data));
-  // let confirmation = confirm("Do you wish to add this to the cart?");
-
-  // window.location.href = "SimpleSundaeFlavors.html";
+ 
 });
 
 function setupTypes(data) {
@@ -61,10 +59,7 @@ function setupTypes(data) {
     };
 
 
-// const btns_flavors = document.querySelectorAll(".goToFlavors div");
-// for (let bt of btns_flavors) {
-//   bt.addEventListener("click", addToCart(e));
-// }
+
 
 function goToFlavors(type) {
   console.log(type);
