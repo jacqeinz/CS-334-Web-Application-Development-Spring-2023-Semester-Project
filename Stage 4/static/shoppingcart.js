@@ -1,16 +1,15 @@
-// async function setUp()
-// if 
+
 const queryString = window.location.search;
-// console.log(queryString)
+console.log(queryString)
 const urlParams = new URLSearchParams(queryString)
 const type = urlParams.get('type')
 console.log(type);
-const id = urlParams.get('id')
-console.log(id);
-const flavors = urlParams.get('flavors')
+const pname = urlParams.get('name')
+console.log(pname);
+const flavors =  urlParams.get('flavors')
 console.log(flavors)
-const priceb = urlParams.get('price')
-console.log(priceb)
+const price = urlParams.get('price')
+console.log(price)
 // get the string following the ?
 var query = window.location.search.substring(1)
 
@@ -19,12 +18,14 @@ if(query.length) {
    // are the new history methods available ?
    if(window.history != undefined && window.history.pushState != undefined) {
         // if pushstate exists, add a new state to the history, this changes the url without reloading the page
-
+        addToCart()
         window.history.pushState({}, document.title, window.location.pathname);
+    
+    console.log(query.length)
    }
 }
 
-addToCart()
+// addToCart()
 // /* get cart total from session on load */
 updateCartTotal();
 // /* button event listeners */
@@ -33,15 +34,13 @@ document.getElementById("emptycart").addEventListener("click", emptyCart);
 function addToCart() {
     //init
     // var sibs = [];
-    var getprice;
-    var getproductName;
     var cart = [];
     var stringCart;
     //create product object
     var product = {
-        type : type,
+        pname : pname,
         flavors :flavors,
-        price : priceb
+        price : price
     };
     console.log(product)
     //convert product data to JSON for storage
@@ -55,7 +54,7 @@ function addToCart() {
         stringCart = JSON.stringify(cart);
         //create session storage cart item
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(type, flavors);
+        addedToCart(pname, flavors);
         
         updateCartTotal();
     }
@@ -68,7 +67,7 @@ function addToCart() {
         stringCart = JSON.stringify(cart);
         //overwrite cart data in sessionstorage 
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(type, flavors);
+        addedToCart(pname, flavors);
         updateCartTotal();
     }
 }
@@ -76,9 +75,11 @@ function addToCart() {
 function updateCartTotal(){
     //init
     var total = 0;
+    var totalTax = 0;
     var price = 0;
     var items = 0;
     var productname = "";
+    var productflavor = "";
     var carttable = "";
     if(sessionStorage.getItem('cart')) {
         //get cart data & parse to array
@@ -90,16 +91,19 @@ function updateCartTotal(){
             //convert each JSON product in array back into object
             var x = JSON.parse(cart[i]);
             //get property value of price
-            price = parseFloat(x.price.split('$')[1]);
-            console.log(price)
-            productname = x.type;
+            price = parseFloat(x.price);
+            productname = x.pname;
+            productflavor = x.flavors;
             //add price to total
-            carttable += "<tr><td>" + type + ": "+ flavors+ "</td><td>$" + price.toFixed(2) + "</td></tr>";
+            carttable += "<tr><td>" + productname + ": "+ productflavor+ "</td><td>$" + price.toFixed(2) + "</td></tr>";
             total += price;
+        totalTax = total + (total*.05)
+        console.log(totalTax)
         }
     }
     //update total on website HTML
     document.getElementById("total").innerHTML = total.toFixed(2);
+    document.getElementById("total+tax").innerHTML = totalTax.toFixed(2);
     //insert saved products to cart table
     document.getElementById("carttable").innerHTML = carttable;
     //update items in cart on website HTML
