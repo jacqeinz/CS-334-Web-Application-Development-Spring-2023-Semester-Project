@@ -1,38 +1,49 @@
-/* get cart total from session on load */
-updateCartTotal();
+// async function setUp()
+// if 
+const queryString = window.location.search;
+// console.log(queryString)
+const urlParams = new URLSearchParams(queryString)
+const type = urlParams.get('type')
+console.log(type);
+const id = urlParams.get('id')
+console.log(id);
+const flavors = urlParams.get('flavors')
+console.log(flavors)
+const priceb = urlParams.get('price')
+console.log(priceb)
+// get the string following the ?
+var query = window.location.search.substring(1)
 
-/* button event listeners */
-document.getElementById("emptycart").addEventListener("click", emptyCart);
-var btns = document.getElementsByClassName('addtocart');
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', function() {addToCart(this);});
+// is there anything there ?
+if(query.length) {
+   // are the new history methods available ?
+   if(window.history != undefined && window.history.pushState != undefined) {
+        // if pushstate exists, add a new state to the history, this changes the url without reloading the page
+
+        window.history.pushState({}, document.title, window.location.pathname);
+   }
 }
 
+addToCart()
+// /* get cart total from session on load */
+updateCartTotal();
+// /* button event listeners */
+document.getElementById("emptycart").addEventListener("click", emptyCart);
 /* ADD TO CART functions */
-
-function addToCart(elem) {
+function addToCart() {
     //init
-    var sibs = [];
+    // var sibs = [];
     var getprice;
     var getproductName;
     var cart = [];
-     var stringCart;
-    //cycles siblings for product info near the add button
-    while(elem = elem.previousSibling) {
-        if (elem.nodeType === 3) continue; // text node
-        if(elem.className == "price"){
-            getprice = elem.innerText;
-        }
-        if (elem.className == "productname") {
-            getproductName = elem.innerText;
-        }
-        sibs.push(elem);
-    }
+    var stringCart;
     //create product object
     var product = {
-        productname : getproductName,
-        price : getprice
+        type : type,
+        flavors :flavors,
+        price : priceb
     };
+    console.log(product)
     //convert product data to JSON for storage
     var stringProduct = JSON.stringify(product);
     /*send product data to session storage */
@@ -44,7 +55,8 @@ function addToCart(elem) {
         stringCart = JSON.stringify(cart);
         //create session storage cart item
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(getproductName);
+        addedToCart(type, flavors);
+        
         updateCartTotal();
     }
     else {
@@ -56,7 +68,7 @@ function addToCart(elem) {
         stringCart = JSON.stringify(cart);
         //overwrite cart data in sessionstorage 
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(getproductName);
+        addedToCart(type, flavors);
         updateCartTotal();
     }
 }
@@ -79,12 +91,12 @@ function updateCartTotal(){
             var x = JSON.parse(cart[i]);
             //get property value of price
             price = parseFloat(x.price.split('$')[1]);
-            productname = x.productname;
+            console.log(price)
+            productname = x.type;
             //add price to total
-            carttable += "<tr><td>" + productname + "</td><td>$" + price.toFixed(2) + "</td></tr>";
+            carttable += "<tr><td>" + type + ": "+ flavors+ "</td><td>$" + price.toFixed(2) + "</td></tr>";
             total += price;
         }
-        
     }
     //update total on website HTML
     document.getElementById("total").innerHTML = total.toFixed(2);
@@ -92,14 +104,16 @@ function updateCartTotal(){
     document.getElementById("carttable").innerHTML = carttable;
     //update items in cart on website HTML
     document.getElementById("itemsquantity").innerHTML = items;
+    
 }
 //user feedback on successful add
-function addedToCart(pname) {
-  var message = pname + " was added to the cart";
+function addedToCart(pname,pflavor) {
+  var message = pname+": "+pflavor + " was added to the cart";
   var alerts = document.getElementById("alerts");
   alerts.innerHTML = message;
   if(!alerts.classList.contains("message")){
      alerts.classList.add("message");
+     
   }
 }
 /* User Manually empty cart */
