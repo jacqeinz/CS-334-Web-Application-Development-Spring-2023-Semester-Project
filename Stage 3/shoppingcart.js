@@ -1,13 +1,12 @@
-// async function setUp()
-// if 
+
 const queryString = window.location.search;
-// console.log(queryString)
+console.log(queryString)
 const urlParams = new URLSearchParams(queryString)
 const type = urlParams.get('type')
 console.log(type);
-const id = urlParams.get('id')
-console.log(id);
-const flavors = urlParams.get('flavors')
+const pname = urlParams.get('name')
+console.log(pname);
+const flavors =  urlParams.get('flavors')
 console.log(flavors)
 const price = urlParams.get('price')
 console.log(price)
@@ -39,7 +38,7 @@ function addToCart() {
     var stringCart;
     //create product object
     var product = {
-        type : type,
+        pname : pname,
         flavors :flavors,
         price : price
     };
@@ -55,7 +54,7 @@ function addToCart() {
         stringCart = JSON.stringify(cart);
         //create session storage cart item
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(type, flavors);
+        addedToCart(pname, flavors);
         
         updateCartTotal();
     }
@@ -68,7 +67,7 @@ function addToCart() {
         stringCart = JSON.stringify(cart);
         //overwrite cart data in sessionstorage 
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(type, flavors);
+        addedToCart(pname, flavors);
         updateCartTotal();
     }
 }
@@ -80,7 +79,7 @@ function updateCartTotal(){
     var price = 0;
     var items = 0;
     var productname = "";
-    var productflavor = "";
+    var productflavor = " ";
     var carttable = "";
     if(sessionStorage.getItem('cart')) {
         //get cart data & parse to array
@@ -93,7 +92,7 @@ function updateCartTotal(){
             var x = JSON.parse(cart[i]);
             //get property value of price
             price = parseFloat(x.price);
-            productname = x.type;
+            productname = x.pname;
             productflavor = x.flavors;
             //add price to total
             carttable += "<tr><td>" + productname + ": "+ productflavor+ "</td><td>$" + price.toFixed(2) + "</td></tr>";
