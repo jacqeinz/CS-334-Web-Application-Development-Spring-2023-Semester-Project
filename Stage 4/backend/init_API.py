@@ -225,7 +225,7 @@ def get_cones_api():
         result_list.append({
             "id": item.id,            
             "name": item.name,
-            "has_flavors": item.has_flavors,
+            "hasFlavors": item.has_flavors,
             'price': item.price,
             'imgSrc': item.data.decode('utf-8')
         })
@@ -238,7 +238,7 @@ def get_sundaes_api():
     for item in results:
         result_list.append({
             "id": item.id,
-            "has_flavors": item.has_flavors,
+            "hasFlavors": item.has_flavors,
             "name": item.name,
             "description": item.description,
             'price': item.price,
@@ -253,7 +253,7 @@ def get_waffles_api():
     for item in results:
         result_list.append({
             "id": item.id,
-            "has_flavors": item.has_flavors,
+            "hasFlavors": item.has_flavors,
             "name": item.name,
             'price': item.price,
             'imgSrc': item.data.decode('utf-8')
