@@ -1,27 +1,20 @@
 setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
-  let db;
-  const request = indexedDB.open("RollingStoneIceCreamStage3");
-  request.onerror = (event) => {
-    console.error("Failed to open IndexedDb");
-  };
-  request.onsuccess = (event) => {
-    db = event.target.result;
-    setupTypes(db);
-  };
 
-  // let confirmation = confirm("Do you wish to add this to the cart?");
+ 
 
-  // window.location.href = "SimpleSundaeFlavors.html";
+  const apiRequest = fetch("/api/getCones");
+  apiRequest
+    .then((response) => response.json())
+    .then((data) => setupTypes(data.data));
+ 
 });
 
-function setupTypes(db) {
-  db.transaction(["sundaeType"]).objectStore("sundaeType").getAll().onsuccess =
-    (event) => {
-      const types = event.target.result;
-      const productsDiv = document.getElementById("products");
-      for (type of types) {
+function setupTypes(data) {
+  console.log(data)
+  const productsDiv = document.getElementById("products");
+  for (type of data) {
         let column = document.createElement("div");
         if (type.hasFlavors) {
           column.classList.add("w3-col", "l3", "s6", "goToFlavors");
@@ -46,7 +39,7 @@ function setupTypes(db) {
         imgDiv.append(img);
 
         let nameP = document.createElement("p");
-        let nameContent = document.createTextNode(type.name);
+        let nameContent = document.createTextNode(type.name)
         let nameBr = document.createElement("br");
         let priceB = document.createElement("b");
         let priceContent = document.createTextNode("$" + type.price);
@@ -64,19 +57,17 @@ function setupTypes(db) {
         productsDiv.append(column);
       }
     };
-}
 
-// const btns_flavors = document.querySelectorAll(".goToFlavors div");
-// for (let bt of btns_flavors) {
-//   bt.addEventListener("click", addToCart(e));
-// }
 
-function goToFlavors(typtype, pricee) {
+
+
+function goToFlavors(type, price) {
   console.log(type, price);
-  window.location.href = "flavors.html?type=sundae"+"&price="+ price +"+&name=" + type;
-}
+  window.location.href = "flavors.html?type=cone"+"&price="+ price +"+&name=" + type;
+  }
+
 
 function addToCart(type, price) {
   console.log(type, price);
-  window.location.href="shoppingcart.html?type=sundae"+"&price="+ price +"+&name=" + type;
+  window.location.href="shoppingcart.html?type=cone"+"&price="+ price +"+&name=" + type;
 }

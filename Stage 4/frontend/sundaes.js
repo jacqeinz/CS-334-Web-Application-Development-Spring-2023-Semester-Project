@@ -1,27 +1,20 @@
 setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
-  let db;
-  const request = indexedDB.open("RollingStoneIceCreamStage3");
-  request.onerror = (event) => {
-    console.error("Failed to open IndexedDb");
-  };
-  request.onsuccess = (event) => {
-    db = event.target.result;
-    setupTypes(db);
-  };
-
+ 
+  const apiRequest = fetch("/api/getSundaes");
+  apiRequest
+    .then((response) => response.json())
+    .then((data) => setupTypes(data.data));
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
   // window.location.href = "SimpleSundaeFlavors.html";
 });
 
-function setupTypes(db) {
-  db.transaction(["bowlType"]).objectStore("bowlType").getAll().onsuccess =
-    (event) => {
-      const types = event.target.result;
-      const productsDiv = document.getElementById("products");
-      for (type of types) {
+function setupTypes(data) {
+  console.log(data)
+  const productsDiv = document.getElementById("products");
+  for (type of data) {
         let column = document.createElement("div");
         if (type.hasFlavors) {
           column.classList.add("w3-col", "l3", "s6", "goToFlavors");
@@ -56,12 +49,15 @@ function setupTypes(db) {
         nameP.append(priceB);
         priceB.append(priceContent);
 
-     
+        let figcaption = document.createElement("figcaption");
+        let captionContent = document.createTextNode(type.description);
+        containerDiv.append(figcaption);
+        figcaption.append(captionContent);
 
         productsDiv.append(column);
       }
     };
-}
+
 
 // const btns_flavors = document.querySelectorAll(".goToFlavors div");
 // for (let bt of btns_flavors) {
@@ -69,11 +65,11 @@ function setupTypes(db) {
 // }
 
 function goToFlavors(type, price) {
-  console.log(type, price)
-  window.location.href = "flavors.html?type=wafflebowl"+"&price="+ price +"+&name=" + type;
+  console.log(type, price);
+  window.location.href = "flavors.html?type=sundae"+"&price="+ price +"+&name=" + type;
 }
 
 function addToCart(type, price) {
   console.log(type, price);
-  window.location.href="shoppingcart.html?type=wafflebowl"+"&price="+ price +"+&name=" + type;
+  window.location.href="shoppingcart.html?type=sundae"+"&price="+ price +"+&name=" + type;
 }

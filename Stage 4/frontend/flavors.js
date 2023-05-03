@@ -1,28 +1,22 @@
 setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
-  let db;
-  const request = indexedDB.open("RollingStoneIceCreamStage3");
-  request.onerror = (event) => {
-    console.error("Failed to open IndexedDb");
-  };
-  request.onsuccess = (event) => {
-    db = event.target.result;
-    setupTypes(db);
-  };
+
+  const apiRequest = fetch("/api/getFlavors");
+  apiRequest
+    .then((response) => response.json())
+    .then((data) => setupTypes(data.data));
 
   // let confirmation = confirm("Do you wish to add this to the cart?");
 
   // window.location.href = "SimpleSundaeFlavors.html";
 });
 
-function setupTypes(db) {
-  db.transaction(["flavors"]).objectStore("flavors").getAll().onsuccess = (
-    event
-  ) => {
-    const types = event.target.result;
-    const productsDiv = document.getElementById("flavors");
-    for (type of types) {
+function setupTypes(data) {
+  console.log(data)
+  const productsDiv = document.getElementById("products");
+  for (type of data) {
+    if (type.hasFlavors) {
       let column = document.createElement("div");
       column.classList.add("w3-col", "l3", "s6");
 
@@ -74,13 +68,15 @@ function addToCart() {
     //YELL AT USER
     console.log("queryStringError")
     console.log(queryString.get("type"))
+    console.log(queryString.get("id"))
     console.log(queryString.get("name"))
     console.log(queryString.get("price"))
     return;
   }
   type = queryString.get("type");
+  id = queryString.get("id");
+  price = queryString.get("price");
   name = queryString.get("name");
-  price = queryString.get("price")
 
   const checkedFlavors = document.querySelectorAll('input[type="checkbox"]:checked');
   let flavorString = "";
