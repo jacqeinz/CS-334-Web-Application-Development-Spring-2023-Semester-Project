@@ -18,10 +18,10 @@ function setupTypes(data) {
         let column = document.createElement("div");
         if (type.hasFlavors) {
           column.classList.add("w3-col", "l3", "s6", "goToFlavors");
-          column.setAttribute("onclick", "goToFlavors('" + type.id + "');");
+          column.setAttribute("onclick", "goToFlavors('" + type.name + "','" + type.price + "');");
         } else {
           column.classList.add("w3-col", "l3", "s6", "goToCart");
-          column.setAttribute("onclick", "addToCart('" + type.id + "');");
+          column.setAttribute("onclick", "addToCart('" + type.name + "','" + type.price + "');");
         }
 
         let containerDiv = document.createElement("div");
@@ -61,12 +61,13 @@ function setupTypes(data) {
 
 
 
-function goToFlavors(type) {
-  console.log(type);
-  window.location.href = "flavors.html?type=cone&id="+type;
-}
+function goToFlavors(type, price) {
+  console.log(type, price);
+  window.location.href = "flavors.html?type=cone"+"&price="+ price +"+&name=" + type;
+  }
 
-function addToCart(type) {
-  console.log(type);
-  window.location.href="shoppingcart.html?type=cone&id="+type;
+
+function addToCart(type, price) {
+  console.log(type, price);
+  window.location.href="shoppingcart.html?type=cone"+"&price="+ price +"+&name=" + type;
 }

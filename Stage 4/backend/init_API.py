@@ -180,7 +180,7 @@ def test_api():
 
 # #API to get items sold and their prices
 # @app.route('/api/shoppingcart')
-# def get_items_sold_api(items_list):
+# def get_items_sold_api(cart):
 #     items_sold = []
 #     for item in items_list:
 #         items_sold.append({
@@ -190,7 +190,7 @@ def test_api():
 #         })
 #     return jsonify({'id': item.id, 'name': item.name, 'price':item.price})
 
-# #
+
 # @app.route('/api/checkout')
 # def send_email_api():
 #     #get recipient info
@@ -199,6 +199,9 @@ def test_api():
 #     msg.body = "Here are your order details:"
 #     mail.send(msg)
 #     return "Message sent!"
+@app.route('/Checkout.html')
+def checkout():
+    return render_template('/Checkout.html')
 
 @app.route('/api/getSnowcones')
 def get_snowcones_api():

@@ -18,10 +18,10 @@ function setupTypes(data) {
     let column = document.createElement("div");
         if (type.hasFlavors) {
           column.classList.add("w3-col", "l3", "s6", "goToFlavors");
-          column.setAttribute("onclick", "goToFlavors('" + type.id + "');");
+          column.setAttribute("onclick", "goToFlavors('" + type.id + "','" + type.price + "');");
         } else {
           column.classList.add("w3-col", "l3", "s6", "goToCart");
-          column.setAttribute("onclick", "addToCart('" + type.id + "');");
+          column.setAttribute("onclick", "addToCart('" + type.id + "','" + type.price + "');");
         }
 
         let containerDiv = document.createElement("div");
@@ -61,12 +61,12 @@ function setupTypes(data) {
 //   bt.addEventListener("click", addToCart(e));
 // }
 
-function goToFlavors(type) {
-  console.log(type);
-  window.location.href = "flavors.html?type=wafflebowl&id=" + type;
+function goToFlavors(type, price) {
+  console.log(type, price);
+  window.location.href = "flavors.html?type=wafflebowl"+"&price="+ price +"+&id=" + type;
 }
 
-function addToCart(type) {
-  console.log(type);
-  window.location.href="shoppingcart.html?type=wafflebowl&id="+type;
+function addToCart(type, price) {
+  console.log(type, price);
+  window.location.href="shoppingcart.html?type=wafflebowl"+"&price="+ price +"+&id=" + type;
 }

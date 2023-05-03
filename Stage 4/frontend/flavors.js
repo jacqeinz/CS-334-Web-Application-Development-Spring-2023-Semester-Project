@@ -62,17 +62,21 @@ function checkboxValidate(){
 //get count of flavors, limit amount of flavors, pass to cart
 function addToCart() {
   const queryString = new URLSearchParams(window.location.search);
-  let type, id;
+  let type, name, price;
 
   if(!queryString.has("type") || !queryString.has("id")){
     //YELL AT USER
     console.log("queryStringError")
     console.log(queryString.get("type"))
     console.log(queryString.get("id"))
+    console.log(queryString.get("name"))
+    console.log(queryString.get("price"))
     return;
   }
   type = queryString.get("type");
   id = queryString.get("id");
+  price = queryString.get("price");
+  name = queryString.get("name");
 
   const checkedFlavors = document.querySelectorAll('input[type="checkbox"]:checked');
   let flavorString = "";
@@ -88,5 +92,5 @@ function addToCart() {
   }
 
 
-  window.location.href = "shoppingcart.html?type="+type+"&id=" + id + "&flavors=" + flavorString;
+  window.location.href = "shoppingcart.html?type="+ type +"&price="+ price +"&name=" + name + "&flavors=" + flavorString;
 }

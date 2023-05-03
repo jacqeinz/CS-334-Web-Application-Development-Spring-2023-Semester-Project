@@ -8,17 +8,17 @@
     "Scope": "/",  "orientation": "portrait",  
     "icons": [    
         {
-            "src": "static/images/LOGO.JPG",      
+            "src": "/images/LOGO.JPG",      
             "type": "image/JPG",      
             "sizes": "48x48"
         },
         {      
-            "src": "static/images/LOGO.JPG",
+            "src": "/images/LOGO.JPG",
             "type": "image/JPG",      
             "sizes": "96x96"    
         },    
         {      
-            "src": "static/images/LOGO.JPG",
+            "src": "/images/LOGO.JPG",
             "type": "image/JPG",      
             "sizes": "192x192"    
         }  
