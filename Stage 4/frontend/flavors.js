@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setupTypes(data) {
   console.log(data);
-  const productsDiv = document.getElementById("products");
+  const flavorsDiv = document.getElementById("flavors");
   for (type of data) {
     let column = document.createElement("div");
     column.classList.add("w3-col", "l3", "s6");
@@ -37,7 +37,7 @@ function setupTypes(data) {
     column.append(label);
     column.append(input);
 
-    productsDiv.append(column);
+    flavorsDiv.append(column);
   }
 }
 
