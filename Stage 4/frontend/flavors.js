@@ -64,7 +64,7 @@ function addToCart() {
   const queryString = new URLSearchParams(window.location.search);
   let type, name, price;
 
-  if(!queryString.has("type") || !queryString.has("id")){
+  if(!queryString.has("type") || !queryString.has("name")){
     //YELL AT USER
     console.log("queryStringError")
     console.log(queryString.get("type"))

@@ -1,38 +1,48 @@
-/* get cart total from session on load */
-updateCartTotal();
 
-/* button event listeners */
-document.getElementById("emptycart").addEventListener("click", emptyCart);
-var btns = document.getElementsByClassName('addtocart');
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', function() {addToCart(this);});
+const queryString = window.location.search;
+console.log(queryString)
+const urlParams = new URLSearchParams(queryString)
+const type = urlParams.get('type')
+console.log(type);
+const pname = urlParams.get('name')
+console.log(pname);
+const flavors =  urlParams.get('flavors')
+console.log(flavors)
+const price = urlParams.get('price')
+console.log(price)
+// get the string following the ?
+var query = window.location.search.substring(1)
+
+// is there anything there ?
+if(query.length) {
+   // are the new history methods available ?
+   if(window.history != undefined && window.history.pushState != undefined) {
+        // if pushstate exists, add a new state to the history, this changes the url without reloading the page
+        addToCart()
+        window.history.pushState({}, document.title, window.location.pathname);
+    
+    console.log(query.length)
+   }
 }
 
+// addToCart()
+// /* get cart total from session on load */
+updateCartTotal();
+// /* button event listeners */
+document.getElementById("emptycart").addEventListener("click", emptyCart);
 /* ADD TO CART functions */
-
-function addToCart(elem) {
+function addToCart() {
     //init
-    var sibs = [];
-    var getprice;
-    var getproductName;
+    // var sibs = [];
     var cart = [];
-     var stringCart;
-    //cycles siblings for product info near the add button
-    while(elem = elem.previousSibling) {
-        if (elem.nodeType === 3) continue; // text node
-        if(elem.className == "price"){
-            getprice = elem.innerText;
-        }
-        if (elem.className == "productname") {
-            getproductName = elem.innerText;
-        }
-        sibs.push(elem);
-    }
+    var stringCart;
     //create product object
     var product = {
-        productname : getproductName,
-        price : getprice
+        pname : pname,
+        flavors :flavors,
+        price : price
     };
+    console.log(product)
     //convert product data to JSON for storage
     var stringProduct = JSON.stringify(product);
     /*send product data to session storage */
@@ -44,7 +54,8 @@ function addToCart(elem) {
         stringCart = JSON.stringify(cart);
         //create session storage cart item
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(getproductName);
+        addedToCart(pname, flavors);
+        
         updateCartTotal();
     }
     else {
@@ -56,7 +67,7 @@ function addToCart(elem) {
         stringCart = JSON.stringify(cart);
         //overwrite cart data in sessionstorage 
         sessionStorage.setItem('cart', stringCart);
-        addedToCart(getproductName);
+        addedToCart(pname, flavors);
         updateCartTotal();
     }
 }
@@ -64,9 +75,11 @@ function addToCart(elem) {
 function updateCartTotal(){
     //init
     var total = 0;
+    var totalTax = 0;
     var price = 0;
     var items = 0;
     var productname = "";
+    var productflavor = " ";
     var carttable = "";
     if(sessionStorage.getItem('cart')) {
         //get cart data & parse to array
@@ -78,28 +91,33 @@ function updateCartTotal(){
             //convert each JSON product in array back into object
             var x = JSON.parse(cart[i]);
             //get property value of price
-            price = parseFloat(x.price.split('$')[1]);
-            productname = x.productname;
+            price = parseFloat(x.price);
+            productname = x.pname;
+            productflavor = x.flavors;
             //add price to total
-            carttable += "<tr><td>" + productname + "</td><td>$" + price.toFixed(2) + "</td></tr>";
+            carttable += "<tr><td>" + productname + ": "+ productflavor+ "</td><td>$" + price.toFixed(2) + "</td></tr>";
             total += price;
+        totalTax = total + (total*.05)
+        console.log(totalTax)
         }
-        
     }
     //update total on website HTML
     document.getElementById("total").innerHTML = total.toFixed(2);
+    document.getElementById("total+tax").innerHTML = totalTax.toFixed(2);
     //insert saved products to cart table
     document.getElementById("carttable").innerHTML = carttable;
     //update items in cart on website HTML
     document.getElementById("itemsquantity").innerHTML = items;
+    
 }
 //user feedback on successful add
-function addedToCart(pname) {
-  var message = pname + " was added to the cart";
+function addedToCart(pname,pflavor) {
+  var message = pname+": "+pflavor + " was added to the cart";
   var alerts = document.getElementById("alerts");
   alerts.innerHTML = message;
   if(!alerts.classList.contains("message")){
      alerts.classList.add("message");
+     
   }
 }
 /* User Manually empty cart */
