@@ -7,7 +7,7 @@ import os
 from sqlalchemy import Column, ForeignKey, Integer, Unicode
 from sqlalchemy.orm import relationship
 from socket import gethostname
-
+from flask_mail import Mail, Message
 import json
 
 
@@ -22,17 +22,17 @@ app.config['SECRET_KEY'] = "SECRET_KEY"
 # initialize the app with the extension
 db = SQLAlchemy(app)
 #push context
+
+mail= Mail(app)
+
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'rollingstoneicecreamenmu@gmail.com'
+app.config['MAIL_PASSWORD'] = 'bfagokvzjpfvztlu'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 app.app_context().push()
-# mail= Mail(app)
-
-# app.config['MAIL_SERVER']='rollingstoneicecreamenmu@enmu.edu'
-# app.config['MAIL_PORT'] = 2525
-# app.config['MAIL_USERNAME'] = 'rollingstoneicecreamenmu@enmu.edu'
-# app.config['MAIL_PASSWORD'] = 'W@xTi58nR7'
-# app.config['MAIL_USE_TLS'] = False
-# app.config['MAIL_USE_SSL'] = True
-# mail = Mail(app)
-
 
 # tables
 
@@ -179,7 +179,7 @@ def test_api():
                     'anothertest': 'anothersuccess'})
 
 # #API to get items sold and their prices
-# @app.route('/api/shoppingcart')
+# @app.route('/api/get_items_sold')
 # def get_items_sold_api(cart):
 #     items_sold = []
 #     for item in items_list:
@@ -191,14 +191,14 @@ def test_api():
 #     return jsonify({'id': item.id, 'name': item.name, 'price':item.price})
 
 
-# @app.route('/api/checkout')
-# def send_email_api():
-#     #get recipient info
-#     get_items_sold_api()
-#     msg = Message('Thank you for your order! ', sender =   'rollingstoneicecreamenmu@gmail.com', recipients = ['order_email'])
-#     msg.body = "Here are your order details:"
-#     mail.send(msg)
-#     return "Message sent!"
+@app.route('/api/checkout')
+def send_email_api():
+    #get recipient info
+    msg = Message('Thank you for your order! ', sender =   'rollingstoneicecreamenmu@gmail.com', recipients = ['jacquicv.19@gmail.com'])
+    msg.body = "Here are your order details:"
+    mail.send(msg)
+    return "Message sent!"
+
 @app.route('/Checkout.html')
 def checkout():
     return render_template('/Checkout.html')
