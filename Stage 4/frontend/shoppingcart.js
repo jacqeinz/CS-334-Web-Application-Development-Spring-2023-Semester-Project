@@ -1,14 +1,15 @@
+
 const queryString = window.location.search;
-console.log(queryString)
+// console.log(queryString)
 const urlParams = new URLSearchParams(queryString)
 const type = urlParams.get('type')
-console.log(type);
+// console.log(type);
 const pname = urlParams.get('name')
-console.log(pname);
+// console.log(pname);
 const flavors =  urlParams.get('flavors')
-console.log(flavors)
+// console.log(flavors)
 const price = urlParams.get('price')
-console.log(price)
+// console.log(price)
 // get the string following the ?
 var query = window.location.search.substring(1)
 
@@ -24,11 +25,15 @@ if(query.length) {
    }
 }
 
-// addToCart()
 // /* get cart total from session on load */
 updateCartTotal();
 // /* button event listeners */
-document.getElementById("emptycart").addEventListener("click", emptyCart);
+window.onload=function(){
+    const del = document.getElementById("emptycart")
+    if (del){
+    del.addEventListener("click", emptyCart);
+    }
+  }
 /* ADD TO CART functions */
 function addToCart() {
     //init
@@ -78,7 +83,7 @@ function updateCartTotal(){
     var price = 0;
     var items = 0;
     var productname = "";
-    var productflavor = "";
+    var productflavor = " ";
     var carttable = "";
     if(sessionStorage.getItem('cart')) {
         //get cart data & parse to array
@@ -96,10 +101,10 @@ function updateCartTotal(){
             //add price to total
             carttable += "<tr><td>" + productname + ": "+ productflavor+ "</td><td>$" + price.toFixed(2) + "</td></tr>";
             total += price;
-        totalTax = total + (total*.05)
-        console.log(totalTax)
         }
     }
+    totalTax = total + (total*.05)
+    
     //update total on website HTML
     document.getElementById("total").innerHTML = total.toFixed(2);
     document.getElementById("total+tax").innerHTML = totalTax.toFixed(2);
