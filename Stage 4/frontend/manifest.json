@@ -1,5 +1,6 @@
 {
     "short_name": "Ice Cream Shop",  
+    "id": "/index.html",
     "name": "Rolling Stone Ice Cream Shop",  
     "description": "Best icecream in town.",
     "theme_color": "#eb5252",  
