@@ -5,7 +5,7 @@
     "theme_color": "#eb5252",  
     "background_color": "#000000",  
     "display": "fullscreen",  
-    "Scope": "/",  "orientation": "portrait",  
+    "Scope": "/index.html",  "orientation": "portrait",  
     "icons": [    
         {
             "src": "/images/LOGO.JPG",      
