@@ -4,12 +4,14 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
-from sqlalchemy import Column, ForeignKey, Integer, Unicode
+from sqlalchemy import Column, ForeignKey, Integer, String, LargeBinary
 from sqlalchemy.orm import relationship
 from socket import gethostname
 from flask_mail import Mail, Message
 import json
-
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
+from sqlalchemy.orm import DeclarativeBase
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 json_url = os.path.join(SITE_ROOT, "defaultData.json")
@@ -28,7 +30,7 @@ mail= Mail(app)
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'rollingstoneicecreamenmu@gmail.com'
-app.config['MAIL_PASSWORD'] = 'bfagokvzjpfvztlu'
+app.config['MAIL_PASSWORD'] = 'yfhevxaltbcbhgxe'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -37,13 +39,13 @@ app.app_context().push()
 # tables
 
 #sundaes 
-class sundaes (db.Model):
-    id = db.Column('sundae_id', db.String(50), primary_key=True)
-    has_flavors = db.Column(db.String(10))
-    name = db.Column(db.String(50))
-    description = db.Column(db.String(50))
-    price = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Sundaes (db.Model):
+    id = Column('sundae_id', String(50), primary_key=True)
+    has_flavors = Column(String(10))
+    name = Column(String(50))
+    description = Column(String(50))
+    price = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
    
 # initialize db
     def __init__(sundae, id, has_flavors, name, description, price, data):
@@ -55,12 +57,12 @@ class sundaes (db.Model):
         sundae.data = data
 
 #cones
-class cones (db.Model):
-    id = db.Column('cone_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    has_flavors = db.Column(db.String(10))
-    price = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Cones (db.Model):
+    id = Column('cone_id', String(50), primary_key=True)
+    name = Column(String(50))
+    has_flavors = Column(String(10))
+    price = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
 # initialize db
     def __init__(cone, id, name, has_flavors, price, data):
         cone.id = id
@@ -72,12 +74,12 @@ class cones (db.Model):
 
 
 #bowls
-class bowls(db.Model):
-    id = db.Column('bowl_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    has_flavors = db.Column(db.String(10))
-    price = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Bowls (db.Model):
+    id = Column('bowl_id', String(50), primary_key=True)
+    name = Column(String(50))
+    has_flavors = Column(String(10))
+    price = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
     
 
 # initialize db
@@ -90,12 +92,12 @@ class bowls(db.Model):
 
 
 #milkshakes
-class milkshakes (db.Model):
-    id = db.Column('milkshake_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    description = db.Column(db.String(10))
-    price = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Milkshakes (db.Model):
+    id = Column('milkshake_id', String(50), primary_key=True)
+    name = Column(String(50))
+    description = Column(String(10))
+    price = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
   
     # initialize db
     def __init__(milkshake, id, name, description, price, data):
@@ -107,11 +109,11 @@ class milkshakes (db.Model):
 
 
 #smoothies table
-class smoothies (db.Model):
-    id = db.Column('smoothie_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    price = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Smoothies (db.Model):
+    id = Column('smoothie_id', String(50), primary_key=True)
+    name = Column(String(50))
+    price = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
    
     
     # initialize db
@@ -123,11 +125,11 @@ class smoothies (db.Model):
   
 
 #frappe table
-class frappes (db.Model):
-    id = db.Column('frappe_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    price = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Frappes (db.Model):
+    id = Column('frappe_id', String(50), primary_key=True)
+    name = Column(String(50))
+    price = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
  
   
 # initialize db
@@ -139,12 +141,12 @@ class frappes (db.Model):
 
 
 #snowcone
-class snowcones (db.Model):
-    id = db.Column('snowcone_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    price = db.Column(db.String(50))
-    description = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Snowcones (db.Model):
+    id = Column('snowcone_id', String(50), primary_key=True)
+    name = Column(String(50))
+    price = Column(String(50))
+    description = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
 
     # initialize db
     def __init__(snowcone, id, name, price, description, data):
@@ -156,10 +158,10 @@ class snowcones (db.Model):
 
 
 #snowcone
-class flavors (db.Model):
-    id = db.Column('flavors_id', db.String(50), primary_key=True)
-    name = db.Column(db.String(50))
-    data = db.Column(db.LargeBinary, nullable=False) #Actual data, needed for Download
+class Flavors (db.Model):
+    id = Column('flavors_id', String(50), primary_key=True)
+    name = Column(String(50))
+    data = Column(LargeBinary, nullable=False) #Actual data, needed for Download
    
   
 # initialize db
@@ -168,8 +170,38 @@ class flavors (db.Model):
         flavor.id = id
         flavor.name = name
         flavor.data = data
+
+class Orders(db.Model):
+    id = mapped_column(Integer, primary_key=True)
+    items = relationship("Items", back_populates="order")
+    email = Column(String(50))
+    total = Column(String(50))
+   
+    # initialize db
+    def __init__(cart, total, email):
+        cart.email = email
+        cart.total = total
  
-#class orders (db.Model):
+class Items(db.Model):
+    id = mapped_column(Integer, primary_key=True)
+    order_id = mapped_column(Integer, ForeignKey("orders.id"))
+    order = relationship("Orders", back_populates="items")
+    pname = Column(String(50))
+    price = Column(String(50))
+    flavors = Column(String(50))
+ 
+
+    def __init__(item, order_id, pname, price, flavors):
+        item.order_id = order_id
+        item.pname = pname
+        item.price = price
+        item.flavors = flavors
+
+
+      
+
+
+
 
 
 
@@ -179,8 +211,9 @@ def test_api():
                     'anothertest': 'anothersuccess'})
 
 # #API to get items sold and their prices
+#receives cart array
 # @app.route('/api/get_items_sold')
-# def get_items_sold_api(cart):
+# def get_items_sold_api():
 #     items_sold = []
 #     for item in items_list:
 #         items_sold.append({
@@ -191,21 +224,44 @@ def test_api():
 #     return jsonify({'id': item.id, 'name': item.name, 'price':item.price})
 
 
-@app.route('/api/checkout')
+@app.route('/api/check_out_confirmation', methods = ['POST'])
 def send_email_api():
-    #get recipient info
-    msg = Message('Thank you for your order! ', sender =   'rollingstoneicecreamenmu@gmail.com', recipients = ['jacquicv.19@gmail.com'])
-    msg.body = "Here are your order details:"
-    mail.send(msg)
-    return "Message sent!"
+    request_data = request.get_json()
+    user_email = request_data['userEmail']
+    total = request_data['total']
+    cart = request_data['cart']
 
-@app.route('/Checkout.html')
-def checkout():
-    return render_template('/Checkout.html')
+    order = Orders(total, user_email)
+    db.session.add(order)
+    db.session.commit()
+    
+    for i in cart:
+        item = Items(order.id, i["pname"], i["price"], i["flavors"])
+        db.session.add(item)
+        db.session.commit()
+
+
+
+    #get recipient info
+    msg = Message('Thank you for your order! ', sender =   'rollingstoneicecreamenmu@gmail.com', recipients=[user_email])
+    msg.subject =  "Here are your order details:"
+    msg.body = ""
+    
+    for i in cart: 
+        msg.body += i["pname"] + ", " + i["price"] + ", " + i["flavors"] + "\n"
+    msg.body += "Total: " + total
+
+    flash('Order successfully added to db')
+    mail.send(msg)
+    return "Success"
+
+# @app.route('/api/shopping')
+# def checkout():
+#     return render_template('/Checkout.html')
 
 @app.route('/api/getSnowcones')
 def get_snowcones_api():
-    results = snowcones.query.all()
+    results = Snowcones.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -219,7 +275,7 @@ def get_snowcones_api():
 
 @app.route('/api/getCones')
 def get_cones_api():
-    results = cones.query.all()
+    results = Cones.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -233,7 +289,7 @@ def get_cones_api():
 
 @app.route('/api/getSundaes')
 def get_sundaes_api():
-    results = sundaes.query.all()
+    results = Sundaes.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -248,7 +304,7 @@ def get_sundaes_api():
 
 @app.route('/api/getWaffleBowls')
 def get_waffles_api():
-    results = bowls.query.all()
+    results = Bowls.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -262,7 +318,7 @@ def get_waffles_api():
 
 @app.route('/api/getSmoothies')
 def get_smoothies_api():
-    results = smoothies.query.all()
+    results = Smoothies.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -275,7 +331,7 @@ def get_smoothies_api():
 
 @app.route('/api/getMilkshakes')
 def get_milkshakes_api():
-    results = milkshakes.query.all()
+    results = Milkshakes.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -289,7 +345,7 @@ def get_milkshakes_api():
 
 @app.route('/api/getFrappes')
 def get_frappes_api():
-    results = frappes.query.all()
+    results = Frappes.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -302,7 +358,7 @@ def get_frappes_api():
 
 @app.route('/api/getFlavors')
 def get_flavors_api():
-    results = flavors.query.all()
+    results = Flavors.query.all()
     result_list = []
     for item in results:
         result_list.append({
@@ -318,59 +374,59 @@ def reset_db_data_api():
     data = json.load(f)
     for i in data['stores']:
         if i['name'] == 'snowConeType':
-            db.session.query(snowcones).delete()
+            db.session.query(Snowcones).delete()
             db.session.commit()
             for item in i['data']:
-                snowcone = snowcones(item['id'], item['name'], item['price'], item['description'], item['imgSrc'].encode('utf-8'))
+                snowcone = Snowcones(item['id'], item['name'], item['price'], item['description'], item['imgSrc'].encode('utf-8'))
                 db.session.add(snowcone)
                 db.session.commit()
         if i['name'] == 'sundaeType':
-            db.session.query(sundaes).delete()
+            db.session.query(Sundaes).delete()
             db.session.commit()
             for item in i['data']:
-                sundae = sundaes(item['id'], item['hasFlavors'], item['name'], item['description'], item['price'], item['imgSrc'].encode('utf-8'))
+                sundae = Sundaes(item['id'], item['hasFlavors'], item['name'], item['description'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(sundae)
                 db.session.commit()
         if i['name'] == 'coneType':
-            db.session.query(cones).delete()
+            db.session.query(Cones).delete()
             db.session.commit()
             for item in i['data']:
-                cone = cones(item['id'], item['name'], item['hasFlavors'], item['price'], item['imgSrc'].encode('utf-8'))
+                cone = Cones(item['id'], item['name'], item['hasFlavors'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(cone)
                 db.session.commit()
         if i['name'] == 'bowlType':
-            db.session.query(bowls).delete()
+            db.session.query(Bowls).delete()
             db.session.commit()
             for item in i['data']:
-                bowl = bowls(item['id'], item['hasFlavors'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
+                bowl = Bowls(item['id'], item['hasFlavors'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(bowl)
                 db.session.commit()
         if i['name'] == 'milkShakeType':
-            db.session.query(milkshakes).delete()
+            db.session.query(Milkshakes).delete()
             db.session.commit()
             for item in i['data']:
-                milkshake = milkshakes(item['id'],item['name'], item['description'], item['price'],  item['imgSrc'].encode('utf-8'))
+                milkshake = Milkshakes(item['id'],item['name'], item['description'], item['price'],  item['imgSrc'].encode('utf-8'))
                 db.session.add(milkshake)
                 db.session.commit()
         if i['name'] == 'smoothieType':
-            db.session.query(smoothies).delete()
+            db.session.query(Smoothies).delete()
             db.session.commit()
             for item in i['data']:
-                smoothie = smoothies(item['id'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
+                smoothie = Smoothies(item['id'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(smoothie)
                 db.session.commit()
         if i['name'] == 'frappeType':
-            db.session.query(frappes).delete()
+            db.session.query(Frappes).delete()
             db.session.commit()
             for item in i['data']:
-                frap = frappes(item['id'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
+                frap = Frappes(item['id'], item['name'], item['price'], item['imgSrc'].encode('utf-8'))
                 db.session.add(frap)
                 db.session.commit()
         if i['name'] == 'flavors':
-            db.session.query(flavors).delete()
+            db.session.query(Flavors).delete()
             db.session.commit()
             for item in i['data']:
-                flavor = flavors(item['id'], item['name'], item['imgSrc'].encode('utf-8'))
+                flavor = Flavors(item['id'], item['name'], item['imgSrc'].encode('utf-8'))
                 db.session.add(flavor)
                 db.session.commit()
     return jsonify({'dbreset':'success'})

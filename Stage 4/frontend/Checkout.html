@@ -11,7 +11,7 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form name="checkout_form"  >
       
         <div class="row">
           <div class="col-50">
@@ -68,8 +68,10 @@
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-        <input type="submit" value="Checkout" class="btn">
-        <a href="shoppingcart.html" class="">Return to Shopping Cart</a>
+      </form>
+        <a href="confirmation.html" type="submit" onclick="onCheckout()" id=place_order value="Place order" class="btn">Place Order</a>
+      
+      <a href="shoppingcart.html" type="submit" value="Checkout" id=place_order value="Go Back to Shopping Cart" class="btn">Go back to Shopping Cart</a>
       </form>
     </div>
   </div>
@@ -96,6 +98,6 @@
     </div>
   </div>
 </div>
+
 </body>
-<script  src="checkout.js"></script>
 </html>
