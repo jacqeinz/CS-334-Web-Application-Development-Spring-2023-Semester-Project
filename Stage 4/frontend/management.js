@@ -182,7 +182,7 @@ function writeInitialFlavors(){
     let myFlavors = ` <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/tiramisu.JPG" style="width:100%">
+            <img src="images/tiramisu.JPG" style="width:100%">
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -191,7 +191,7 @@ function writeInitialFlavors(){
         </div>
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/cookiedough.JPG"style="width:100%" >
+            <img src="images/cookiedough.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -202,7 +202,7 @@ function writeInitialFlavors(){
       <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/chocolatechip.JPG"style="width:100%" >
+            <img src="images/chocolatechip.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -211,7 +211,7 @@ function writeInitialFlavors(){
         </div>
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/espresso.JPG"style="width:100%" >
+            <img src="images/espresso.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -222,7 +222,7 @@ function writeInitialFlavors(){
       <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/vanillabean.JPG"style="width:100%" >
+            <img src="images/vanillabean.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -231,7 +231,7 @@ function writeInitialFlavors(){
         </div>
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/chocolatefudge.JPG"style="width:100%" >
+            <img src="images/chocolatefudge.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -242,7 +242,7 @@ function writeInitialFlavors(){
       <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/strawberry.JPG"style="width:100%" >
+            <img src="images/strawberry.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -251,7 +251,7 @@ function writeInitialFlavors(){
         </div>
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/pecanpraline.JPG"style="width:100%" >
+            <img src="images/pecanpraline.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
@@ -262,7 +262,7 @@ function writeInitialFlavors(){
       <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="/frontend/images/raspberrycheescake.JPG"style="width:100%" >
+            <img src="images/raspberrycheescake.JPG"style="width:100%" >
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black" onclick="editFlavorItem(this)">Edit</button>
             </div>
