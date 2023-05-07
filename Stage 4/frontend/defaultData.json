@@ -15,9 +15,9 @@
         {
             "name":"coneType",
             "data": [
-                {"id":"dipped_cone", "hasFlavors":true, "name":"Chocolate Dipped Cone with Rainbow Sprinkles", "price":6.99, "imgSrc":"images/dipped-ice-cream-cones-8-480x270.jpg"},
-                {"id":"chocolate_cone", "hasFlavors":true, "name":"Chocolate Dipped Cones", "price":6.99, "imgSrc":"images/cone4.jpg"},
-                {"id":"plain_cone", "hasFlavors":true, "name":"Plain waffle Cone", "price":5.99, "imgSrc":"images/cone5.jpg"}
+                {"id":"dipped_cone", "name":"Chocolate Dipped Cone with Rainbow Sprinkles", "hasFlavors":true,  "price":6.99, "imgSrc":"images/dipped-ice-cream-cones-8-480x270.jpg"},
+                {"id":"chocolate_cone", "name":"Chocolate Dipped Cones", "hasFlavors":true, "price":6.99, "imgSrc":"images/cone4.jpg"},
+                {"id":"plain_cone","name":"Plain waffle Cone",  "hasFlavors":true,  "price":5.99, "imgSrc":"images/cone5.jpg"}
             ]
         },
         {
