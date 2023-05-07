@@ -1,43 +1,47 @@
-const staticDevIceCream = async (resources) => {
-    const cache = await caches.open("v1");
-    await cache.addAll(resources);
-  };
-  
-  self.addEventListener("install", (event) => {
-    event.waitUntil(
-        staticDevIceCream([
-    "/",
-    "index.html",
-    "index.js",
-    "common.js",
-    "defaultData.json",
-    "carousel.css",
-    "carousel.js",
-    "images/LOGO.JPG",
-    "images/login+person+profile+user+users+icon-1320166527284195604.png",
-    "images/headertest.jpg",
-    "images/headersec.jpg",
-    "images/test.jpg",
-    "https://www.w3schools.com/w3css/default.asp", 
-    "https://www.w3schools.com/w3css/4/w3.css",
-    "https://fonts.googleapis.com/css?family=Roboto", 
-    "https://fonts.googleapis.com/css?family=Montserrat", 
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        ])
-    );
-});
-self.addEventListener("install", installEvent => {
-    installEvent.waitUntil(
-        caches.open(staticDevIceCream).then(cache => {
-            cache.addAll(resources);
-        })
-    )
-})
+// This is the "Offline page" service worker
 
-self.addEventListener("fetch", fetchEvent => {
-    fetchEvent.respondWith(
-        caches.match(fetchEvent.request).then(res => {
-            return res || fetch(fetchEvent.request)
-        })
-    )
-})
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+const CACHE = "pwabuilder-page";
+
+// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+const offlineFallbackPage = "ToDo-replace-this-name.html";
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
+self.addEventListener('install', async (event) => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => cache.add(offlineFallbackPage))
+  );
+});
+
+if (workbox.navigationPreload.isSupported()) {
+  workbox.navigationPreload.enable();
+}
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const preloadResp = await event.preloadResponse;
+
+        if (preloadResp) {
+          return preloadResp;
+        }
+
+        const networkResp = await fetch(event.request);
+        return networkResp;
+      } catch (error) {
+
+        const cache = await caches.open(CACHE);
+        const cachedResp = await cache.match(offlineFallbackPage);
+        return cachedResp;
+      }
+    })());
+  }
+});
