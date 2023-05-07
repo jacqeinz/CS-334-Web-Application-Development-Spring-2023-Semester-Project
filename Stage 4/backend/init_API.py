@@ -212,17 +212,7 @@ def test_api():
 
 # #API to get items sold and their prices
 #receives cart array
-# @app.route('/api/get_items_sold')
-# def get_items_sold_api():
-#     items_sold = []
-#     for item in items_list:
-#         items_sold.append({
-#             "id": item.id, 
-#             "name": item.name, 
-#             "price": item.price 
-#         })
-#     return jsonify({'id': item.id, 'name': item.name, 'price':item.price})
-
+#stores order and sends email
 
 @app.route('/api/check_out_confirmation', methods = ['POST'])
 def send_email_api():
