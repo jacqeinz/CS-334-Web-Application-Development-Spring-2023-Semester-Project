@@ -368,7 +368,7 @@ def get_flavors_api():
     return json.dumps({'data':result_list})
 
 @app.route('/api/getOrders')
-def get_flavors_api():
+def get_orders_api():
     results = Orders.query.all()
     result_list = []
     for item in results:
