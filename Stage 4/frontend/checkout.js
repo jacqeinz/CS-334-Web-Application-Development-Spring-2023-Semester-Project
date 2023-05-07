@@ -70,5 +70,9 @@ function onCheckout() {
     },
   })
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => {
+        console.log(json)
+        window.location.href = "confirmation.html"
+    });
+
 }
