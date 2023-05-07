@@ -63,7 +63,8 @@ function onCheckout() {
     method: "POST",
     body: JSON.stringify({
         "total": total,
-        "cart" : [{"pname": pname, "flavors": flavors, "price": price,  }],
+         
+        "cart" : JSON.parse(cart[i [{"pname": itemsinCart.pname, "flavors": flavors, "price": price}]]),
       "userEmail": userEmail,
     }),
     headers: {
