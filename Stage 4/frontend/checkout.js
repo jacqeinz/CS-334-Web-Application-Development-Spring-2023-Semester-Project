@@ -4,7 +4,7 @@ let cart = [];
 document.addEventListener("DOMContentLoaded", function () {
   Cart();
 });
-const send_button = document.createElementById("place_order");
+
 
 function Cart() {
   if (sessionStorage.getItem("cart")) {
@@ -63,7 +63,7 @@ function onCheckout() {
     method: "POST",
     body: JSON.stringify({
         "total": total,
-        "cart" : cart[i [{"pname": i.pname, "flavors": i.flavors, "price": i.price}]],
+        "cart" : JSON.parse("pname", "flavors", "price"),
       "userEmail": userEmail,
     }),
     headers: {
