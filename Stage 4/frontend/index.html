@@ -105,7 +105,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 
 <div class="w3-display-container w3-container">
-  <img src="images/icon2.png" alt="Ice Cream" style="width:75%">
+  <img src="images/icon2.png" alt="Ice Cream" style="width:50%">
 </div>
   
 
@@ -211,23 +211,45 @@ function w3_close() {
 
 </body>
 <script type="text/javascript" src="carousel.js"></script>
-<script> if ("serviceWorker" in navigator) {
-  try {
-    const registration = await navigator.serviceWorker.register("service-worker.js", {
-      scope: "http://jacqiec.pythonanywhere.com/index.html",
-    });
-    if (registration.installing) {
-      console.log("Service worker installing");
-    } else if (registration.waiting) {
-      console.log("Service worker installed");
-    } else if (registration.active) {
-      console.log("Service worker active");
-    }
-  } catch (error) {
-    console.error(`Registration failed with ${error}`);
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('service-worker.js')
   }
-}
+const CACHE_NAME = 'cool-cache';
 
-</script> 
+// Add whichever assets you want to pre-cache here:
+const PRECACHE_ASSETS = [
+    '/',
+    '/index.html'
+]
+
+// Listener for the install event - pre-caches our assets list on service worker install.
+self.addEventListener('install', event => {
+    event.waitUntil((async () => {
+        const cache = await caches.open(CACHE_NAME);
+        cache.addAll(PRECACHE_ASSETS);
+    })());
+});
+self.addEventListener('activate', event => {
+  event.waitUntil(clients.claim());
+});
+self.addEventListener('fetch', event => {
+  event.respondWith(async () => {
+      const cache = await caches.open(CACHE_NAME);
+
+      // match the request to our cache
+      const cachedResponse = await cache.match(event.request);
+
+      // check if we got a valid response
+      if (cachedResponse !== undefined) {
+          // Cache hit, return the resource
+          return cachedResponse;
+      } else {
+        // Otherwise, go to the network
+          return fetch(event.request)
+      };
+  });
+});
+</script>
 </style>
 </html>
