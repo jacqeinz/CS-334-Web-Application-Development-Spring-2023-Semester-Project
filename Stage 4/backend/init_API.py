@@ -276,7 +276,7 @@ def get_cones_api():
         })
     return json.dumps({'data':result_list})
 
-@app.route('/jacqiec.pythonanywhere.com/api/getSundaes')
+@app.route('/api/getSundaes')
 def get_sundaes_api():
     results = Sundaes.query.all()
     result_list = []
