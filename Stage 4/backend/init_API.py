@@ -373,7 +373,7 @@ def get_orders_api():
     result_list = []
     for item in results:
         item_list = []
-        for i in item.flavors:
+        for i in item.items:
             item_list.append({
                 'id': i.id,
                 'pname': i.pname,
