@@ -1,42 +1,78 @@
 {
-  "short_name": "Ice Cream Shop",
-  "id": "/index.html",
-  "name": "Rolling Stone Ice Cream Shop",
-  "description": "Best icecream in town.",
-  "theme_color": "#be849d",
-  "background_color": "#56abba",
-  "display": "fullscreen",
-  "Scope": "/index.html",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "/images/LOGO.JPG",
-      "type": "image/JPG",
-      "sizes": "48x48"
-    },
-    {
-      "src": "/images/headertest.jpg",
-      "type": "image/jpg",
-      "sizes": "96x96"
-    },
-    {
-      "src": "/images/test.jpg",
-      "type": "image/jpg",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/images/headersec.jpg",
-      "type": "image/jpg",
-      "sizes": "512x512"
-    }
-    ,
-    {
-      "src": "/images/icon.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any"
-    }
-  ],
-  "start_url": "/index.html",
-  "lang": "en"
+      "start_url": "/index.html",
+      "lang": "en",
+      "name": "Rolling Stone Ice Cream",
+      "short_name": "RollingStoneIceCream",
+      "description": "Order the best ice cream in town",
+      "display": "browser",
+      "dir": "auto",
+      "theme_color": "#be849d",
+      "background_color": "#56abba",
+      "orientation": "any",
+      "icons": [
+        {
+          "src": "/images/LOGO.JPG",
+          "type": "image/JPG",
+          "sizes": "48x48"
+        },
+        {
+          "src": "/images/headertest.jpg",
+          "type": "image/jpg",
+          "sizes": "96x96"
+        },
+        {
+          "src": "/images/test.jpg",
+          "type": "image/jpg",
+          "sizes": "192x192"
+        },
+        {
+          "src": "/images/headersec.jpg",
+          "type": "image/jpg",
+          "sizes": "512x512"
+        },
+        {
+          "src": "/images/icon2.png",
+          "type": "image/png",
+          "sizes": "512x512",
+          "purpose": "any"
+        }],
+      "screenshots": [
+        {
+          "src": "http://jacqiec.pythonanywhere.com/index.html",
+          "sizes": "2880x1800",
+          "type": "image/png",
+          "description": "A screenshot of the home page"
+        }
+      ],
+      "related_applications": [
+        {
+          "platform": "windows",
+          "url": "http://jacqiec.pythonanywhere.com/index.html",
+          "id": "example.ExampleApp"
+        },
+        {
+          "platform": "play",
+          "url": "http://jacqiec.pythonanywhere.com/index.html"
+        }
+      ],
+      "protocol_handlers": [
+        {
+          "protocol": "ircs",
+          "name": "IRC Mozilla Extension",
+          "uriTemplate": "https://irccloud.mozilla.com/#!/%s"
+        }
+      ],
+      "display_override": ["window-controls-overlay"],
+      "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52e9",
+      "prefer_related_applications": false,
+      "shortcuts": [
+        {
+          "name":"RollingStone",
+          "url":"http://jacqiec.pythonanywhere.com/index.html/shortcut",
+          "description":"OrderNow"
+        }
+   
+  ]
+      
+ 
 }

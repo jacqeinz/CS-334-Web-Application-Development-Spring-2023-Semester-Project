@@ -104,7 +104,9 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    
   </div>
 
-
+<div class="w3-display-container w3-container">
+  <img src="images/icon2.png" alt="Ice Cream" style="width:75%">
+</div>
   
 
   <!-- Subscribe section -->
@@ -210,4 +212,23 @@ function w3_close() {
 </body>
 <script type="text/javascript" src="carousel.js"></script>
 <script  type="text/javascript" src="app.js"></script>
+<script> if ("serviceWorker" in navigator) {
+  try {
+    const registration = await navigator.serviceWorker.register("service-worker.js", {
+      scope: "/index.html",
+    });
+    if (registration.installing) {
+      console.log("Service worker installing");
+    } else if (registration.waiting) {
+      console.log("Service worker installed");
+    } else if (registration.active) {
+      console.log("Service worker active");
+    }
+  } catch (error) {
+    console.error(`Registration failed with ${error}`);
+  }
+}
+registerServiceWorker("service-worker.js");
+</script> 
+</style>
 </html>
