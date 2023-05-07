@@ -19,9 +19,7 @@
 
     const HOSTNAME_WHITELIST = [
         self.location.hostname,
-        'fonts.gstatic.com',
-        'fonts.googleapis.com',
-        'cdn.jsdelivr.net'
+        "http://jacqiec.pythonanywhere.com/index.html"
     ]
 
     // The Util Function to hack URLs of intercepted requests
