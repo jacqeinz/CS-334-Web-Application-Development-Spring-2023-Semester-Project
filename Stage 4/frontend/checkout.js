@@ -57,12 +57,13 @@ function onCheckout() {
   console.log("userEmail", email);
   let total = sessionStorage.getItem("totalTax");
   console.log("total", total);
+  numberOfItems = cart.length;
 
   fetch("/api/check_out_confirmation", {
     method: "POST",
     body: JSON.stringify({
-      "total": total,
-      "cart": cart,
+        "total": total,
+        "cart" : {"price": price, "pname": pname, "flavors": flavors},
       "userEmail": userEmail,
     }),
     headers: {
