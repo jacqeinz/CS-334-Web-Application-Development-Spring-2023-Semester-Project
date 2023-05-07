@@ -48,7 +48,7 @@ function Cart() {
 
 function onCheckout() {
     let cartObjects = []
-    for (i in cart) {
+    for (i of cart) {
         cartObjects.push(JSON.parse(i))
         console.log(JSON.parse(i))
     }
