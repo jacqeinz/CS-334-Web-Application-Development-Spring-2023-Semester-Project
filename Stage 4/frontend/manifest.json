@@ -59,7 +59,7 @@
         {
           "protocol": "ircs",
           "name": "IRC Mozilla Extension",
-          "uriTemplate": "https://irccloud.mozilla.com/#!/%s"
+          "uriTemplat": "https://irccloud.mozilla.com/#!/%s"
         }
       ],
       "display_override": ["window-controls-overlay"],
