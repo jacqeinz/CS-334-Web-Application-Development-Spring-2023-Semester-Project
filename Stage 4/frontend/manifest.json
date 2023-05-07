@@ -10,8 +10,8 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/images/headersec.jpg",
-      "type": "image/jpg",
+      "src": "/images/LOGO.JPG",
+      "type": "image/JPG",
       "sizes": "48x48"
     },
     {
@@ -20,12 +20,12 @@
       "sizes": "96x96"
     },
     {
-      "src": "/images/LOGO.JPG",
-      "type": "image/JPG",
+      "src": "/images/test.jpg",
+      "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "/images/test.jpg",
+      "src": "/images/headersec.jpg",
       "type": "image/jpg",
       "sizes": "512x512"
     }
