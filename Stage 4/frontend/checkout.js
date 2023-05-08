@@ -71,9 +71,9 @@ function onCheckout() {
             "Content-type": "application/json; charset=UTF-8",
         },
     })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json);
-            window.location.href = "confirmation.html";
-        });
+    .then((response) => response.text())
+    .then((text) => {
+        console.log(text);
+        window.location.href = "confirmation.html";
+    });
 }
