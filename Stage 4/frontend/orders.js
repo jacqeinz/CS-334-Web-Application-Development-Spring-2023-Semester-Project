@@ -17,34 +17,29 @@ function setupTypes(db) {
   db.transaction(["Orders"]).objectStore("Orders").getAll().onsuccess =
     (event) => {
       const types = event.target.result;
-      const productsDiv = document.getElementById("ordershow");
+      const ordersDiv = document.getElementById("ordershow");
       for (type of types) {
         let column = document.createElement("div");
         let containerDiv = document.createElement("div");
-        containerDiv.classList.add("w3-display-container w3-container");
+        containerDiv.classList.add(" w3-container");
         column.append(containerDiv);
         let nameP = document.createElement("p");
-        
-        
         let totalContent = document.createTextNode("$" + type.total);
-      
+        let item_list = []
         for (item of type.items){
           let price = type.price
           let flavors = type.flavors
           let pname = type.pname
-          nameP.append(price)
-          nameP.append(flavors)
-          nameP.append(pname)
+          item_list += price + flavors + pname
         }
         let email = document.createTextNode(type.email);
         containerDiv.append(nameP);
-        nameP.append(nameContent);
         nameP.append(totalContent);
-        nameP.append(items);
+        nameP.append(item_list);
         nameP.append(email)
 
 
-        productsDiv.append(column);
+        ordersDiv.append(column);
       }
     };
 }
