@@ -78,6 +78,14 @@
                 {"id":"pecanPraline", "name":"Pecan Praline", "imgSrc":"images/pecanpraline.JPG"},
                 {"id":"ChocolateFudge", "name":"Chocolate Fudge", "imgSrc":"images/chocolatefudge.JPG"}
             ]
+        },
+        
+        {
+            "name":"loginInfo",
+            "data": [
+                {"empID": "888777","password":"pass1"},
+                {"empID": "777444","password":"pass2"}
+            ]
         }
     ]
 }
