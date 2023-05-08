@@ -103,13 +103,13 @@ function updateCartTotal(){
             total += price;
         }
     }
-    totalTax = total + (total*.05);
+    totalTax = (total + (total*.05)).toFixed(2);
     
     sessionStorage.setItem("totalTax", totalTax);
 
     //update total on website HTML
     document.getElementById("total").innerHTML = total.toFixed(2);
-    document.getElementById("totalTax").innerHTML = totalTax.toFixed(2);
+    document.getElementById("totalTax").innerHTML = totalTax;
     //insert saved products to cart table
     document.getElementById("carttable").innerHTML = carttable;
     //update items in cart on website HTML
