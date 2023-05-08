@@ -210,10 +210,26 @@ def test_api():
     return jsonify({'test':'success',
                     'anothertest': 'anothersuccess'})
 
-# #API to get items sold and their prices
-#receives cart array
-#stores order and sends email
+# #API endpoint to get items sold and their prices
+#  //API that returns sold items and their prices
+#     fetch("/api/check_out_confirmation", {
+#         method: "POST",
+#         body: JSON.stringify({
+#             total: total,
+#             cart: cartObjects,
+#             userEmail: userEmail,
+#         }),
+#         headers: {
+#             "Content-type": "application/json; charset=UTF-8",
+#         },
+#     })
+#         .then((response) => response.json())
+#         .then((json) => {
+#             console.log(json);
+#             window.location.href = "confirmation.html";
+#         });
 
+#stores order and sends email
 @app.route('/api/check_out_confirmation', methods = ['POST'])
 def send_email_api():
     request_data = request.get_json()
