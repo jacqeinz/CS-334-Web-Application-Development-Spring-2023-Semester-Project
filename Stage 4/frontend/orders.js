@@ -27,9 +27,9 @@ function setupTypes(db) {
         let totalContent = document.createTextNode("$" + type.total);
         let item_list = []
         for (item of type.items){
-          let price = type.price
-          let flavors = type.flavors
-          let pname = type.pname
+          let price = item.price
+          let flavors = item.flavors
+          let pname = item.pname
           item_list += price + flavors + pname
         }
         let email = document.createTextNode(type.email);
