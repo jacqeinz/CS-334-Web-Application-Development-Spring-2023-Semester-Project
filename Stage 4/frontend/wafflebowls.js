@@ -63,10 +63,10 @@ function setupTypes(data) {
 
 function goToFlavors(type, price) {
   console.log(type, price);
-  window.location.href = "flavors.html?type=wafflebowl"+"&price="+ price +"+&id=" + type;
+  window.location.href = "flavors.html?type=wafflebowl"+"&price="+ price +"+&name=" + type;
 }
 
 function addToCart(type, price) {
   console.log(type, price);
-  window.location.href="shoppingcart.html?type=wafflebowl"+"&price="+ price +"+&id=" + type;
+  window.location.href="shoppingcart.html?type=wafflebowl"+"&price="+ price +"+&name=" + type+"&flavors= ";
 }

@@ -69,5 +69,5 @@ function goToFlavors(type, price) {
 
 function addToCart(type, price) {
   console.log(type, price);
-  window.location.href="shoppingcart.html?type=cone"+"&price="+ price +"+&name=" + type;
+  window.location.href="shoppingcart.html?type=cone"+"&price="+ price +"+&name=" + type +"&flavors= ";
 }

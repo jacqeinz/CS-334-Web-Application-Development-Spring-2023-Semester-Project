@@ -71,5 +71,5 @@ function goToFlavors(type, price) {
 
 function addToCart(type, price) {
   console.log(type, price);
-  window.location.href="shoppingcart.html?type=sundae"+"&price="+ price +"+&name=" + type;
+  window.location.href="shoppingcart.html?type=sundae"+"&price="+ price +"+&name=" + type+"&flavors= ";
 }
