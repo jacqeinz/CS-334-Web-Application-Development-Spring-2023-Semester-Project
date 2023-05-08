@@ -68,5 +68,5 @@ function goToFlavors(type, price) {
 
 function addToCart(type, price) {
   console.log(type, price);
-  window.location.href="shoppingcart.html?type=wafflebowl"+"&price="+ price +"+&name=" + type+"&flavors= ";
+  window.location.href="shoppingcart.html?type=wafflebowl"+"&price="+ price +"+&name=" + type+"&flavors="+" ";
 }
