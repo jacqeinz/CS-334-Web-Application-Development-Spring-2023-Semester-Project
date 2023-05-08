@@ -403,6 +403,26 @@ def delete_order_api(order_id):
     db.session.commit()
     return "Success"
 
+def loadInUsers():
+    with open("defaultData.json", "r") as file:
+        data = json.load(file)
+        return data["data"]
+
+@app.route("/managerPortalLogin.html", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("empID")
+        password = request.form.get("pwd")
+        users = loadInUsers()
+        print(users)
+        for user in users:
+            if user["empID"] == username and user["password"] == password:
+                print("Working.")
+                return redirect(url_for("/management.html"))
+        error = "Invalid credentials. Please try again."
+        return redirect(url_for("/managementPortalLogin.html", error = error))
+    return render_template("login.html")
+
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
     f = open(json_url)
