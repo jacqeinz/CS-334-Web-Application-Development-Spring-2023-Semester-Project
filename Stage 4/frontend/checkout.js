@@ -75,5 +75,15 @@ function onCheckout() {
     .then((text) => {
         console.log(text);
         window.location.href = "confirmation.html";
+        if(sessionStorage.getItem('cart')){
+            sessionStorage.removeItem('cart');
+            updateCartTotal();
+          //clear message and remove class style
+          var alerts = document.getElementById("alerts");
+          alerts.innerHTML = "";
+          if(alerts.classList.contains("message")){
+              alerts.classList.remove("message");
+          }
+        }
     });
 }

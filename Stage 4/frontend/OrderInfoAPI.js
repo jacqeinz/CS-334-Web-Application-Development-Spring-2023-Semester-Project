@@ -1,4 +1,4 @@
-
+// Getting orders
 function get_orders_api(){
     results = Orders.query.all()
     result_list = []
