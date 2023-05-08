@@ -36,9 +36,9 @@ function Cart() {
                 price.toFixed(2) +
                 "</td></tr>";
             total += price;
-            totalTax = total + total * 0.05;
+            totalTax = (total + total * 0.05).toFixed(2);
             // document.getElementById("total").innerHTML = total.toFixed(2);
-            document.getElementById("total").innerHTML = totalTax.toFixed(2);
+            document.getElementById("total").innerHTML = totalTax;
             //insert saved products to cart table
             document.getElementById("carttable").innerHTML = cartTable;
             //update items in cart on website HTML
