@@ -9,6 +9,7 @@ function Cart() {
     if (sessionStorage.getItem("cart")) {
         //get cart data & parse to array
         cart = JSON.parse(sessionStorage.getItem("cart"));
+        let total = 0;
         let totalTax = 0;
         let price = 0;
         let items = 0;
