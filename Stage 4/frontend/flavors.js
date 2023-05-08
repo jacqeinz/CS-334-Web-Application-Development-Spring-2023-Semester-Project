@@ -1,7 +1,7 @@
 setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const apiRequest = fetch("/api/getFlavors");
+  const apiRequest = fetch("http://jacqiec.pythonanywhere.com/api/getFlavors");
   apiRequest
     .then((response) => response.json())
     .then((data) => setupTypes(data.data));

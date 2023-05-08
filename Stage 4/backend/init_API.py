@@ -12,6 +12,7 @@ import json
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy import delete
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 json_url = os.path.join(SITE_ROOT, "defaultData.json")
@@ -173,7 +174,7 @@ class Flavors (db.Model):
 
 class Orders(db.Model):
     id = mapped_column(Integer, primary_key=True)
-    items = relationship("Items", back_populates="order")
+    items = relationship("Items", back_populates="order", cascade = "all, delete, delete-orphan" )
     email = Column(String(50))
     total = Column(String(50))
    
@@ -393,6 +394,14 @@ def get_orders_api():
             'items': item_list
         })
     return json.dumps({'data':result_list})
+
+
+@app.route('/api/deleteOrders/<order_id>', methods = ['DELETE'])
+def delete_order_api(order_id):
+    order = db.session.query(Orders).get(order_id)
+    db.session.delete(order)
+    db.session.commit()
+    return "Success"
 
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():

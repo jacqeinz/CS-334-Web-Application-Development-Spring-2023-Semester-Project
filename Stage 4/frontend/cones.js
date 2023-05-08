@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
 
-  const apiRequest = fetch("/api/getCones");
+  const apiRequest = fetch("http://jacqiec.pythonanywhere.com/api/getCones");
   apiRequest
     .then((response) => response.json())
     .then((data) => setupTypes(data.data));
