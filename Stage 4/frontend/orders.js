@@ -13,12 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // window.location.href = "SimpleSundaeFlavors.html";
 });
 
-function setupTypes(db) {
-  db.transaction(["Orders"]).objectStore("Orders").getAll().onsuccess =
-    (event) => {
-      const types = event.target.result;
+function setupTypes(data) {
+  console.log(data)
       const ordersDiv = document.getElementById("ordershow");
-      for (type of types) {
+      for (type of data) {
         let column = document.createElement("div");
         let containerDiv = document.createElement("div");
         containerDiv.classList.add(" w3-container");
@@ -42,7 +40,7 @@ function setupTypes(db) {
         ordersDiv.append(column);
       }
     };
-}
+
 let inputid = document.getElementById("orderID");
 let id = inputid.value;
 function deleteOrder(){
