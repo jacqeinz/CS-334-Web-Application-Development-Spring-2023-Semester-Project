@@ -19,7 +19,6 @@ function setupTypes(data) {
       for (type of data) {
         let column = document.createElement("div");
         let containerDiv = document.createElement("div");
-        containerDiv.classList.add(" w3-display-container");
         column.append(containerDiv);
         let nameP = document.createElement("p");
         let totalContent = document.createTextNode("$" + type.total);
