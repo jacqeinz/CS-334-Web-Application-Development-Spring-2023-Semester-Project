@@ -22,23 +22,22 @@
     </style>
 </head>
 <body>
-    <form id="loginForm">
         <div class="container">
             <a href="index.html"><img src="images/LOGO.JPG" width="200px" height="150px"></a>
             <h1>Employee Account Login</h1>
-            <form id="loginForm" method="post" action="{{url_for('Stage 4\backend\init_API.py')}}">
+            <form action="{{ url_for('login') }}" method="post" id="loginForm">
+                <div class="error">{{ error }}</div>
                 <div>
                     <label class="mb-3">Employee ID Number</label>
                     <input type="text" name="empID"/>
                 </div>
                 <div>
                     <label class="mb-3">Password</label>
-                    <input type="password" name="pwd"/>
+                    <input type="password" name="password"/>
                 </div>
                 <button type="submit" class="btn btn-primary" value="submit">Submit</button>
             </form>
             <a href="index.html">Return to Homepage</a>
         </div>
-    </form>
 </body>
 </html>
