@@ -408,20 +408,26 @@ def loadInUsers():
         data = json.load(file)
         return data["data"]
 
-@app.route("/managerPortalLogin.html", methods=["GET", "POST"])
+@app.route("/managerPortalLogin", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form.get("empID")
-        password = request.form.get("pwd")
-        users = loadInUsers()
-        print(users)
+    if request.method == 'POST' and 'empID' in request.form and 'password' in request.form:
+        emp_id = request.form['empID']
+        password = request.form['password']
+        with open('defaultData.json', 'r') as f:
+            json_data = json.load(f)
+        users={}
+        for dct in json_data['stores']:
+            if(dct['name'] == 'loginInfo'):
+                users = dct['data']
         for user in users:
-            if user["empID"] == username and user["password"] == password:
-                print("Working.")
-                return redirect(url_for("/management.html"))
-        error = "Invalid credentials. Please try again."
-        return redirect(url_for("/managementPortalLogin.html", error = error))
-    return render_template("login.html")
+            if(user['empID'] == emp_id and user['password']==password):
+                flash('You were successfully logged in!')
+                return render_template("management.html")
+            flash('Invalid username or password')
+            error = "Invalid credentials. Please try again."
+            return render_template("managerPortalLogin.html", error=error)
+    else:
+        return render_template("managerPortalLogin.html")
 
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
