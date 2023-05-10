@@ -2,7 +2,7 @@ setupDbConnection();
 
 document.addEventListener("DOMContentLoaded", function () {
   
-  const apiRequest = fetch("/jacqiec.pythonanywhere.com/api/getFrappes");
+  const apiRequest = fetch("http://jacqiec.pythonanywhere.com/api/getFrappes");
   apiRequest
     .then((response) => response.json())
     .then((data) => setupTypes(data.data));
