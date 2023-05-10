@@ -81,10 +81,10 @@
         },
         
         {
-            "name":"loginInfo",
+            "name":"userType",
             "data": [
-                {"empID": "888777","password":"pass1"},
-                {"empID": "777444","password":"pass2"}
+                {"ename": "Jason Mendez", "empID": "888777","password":"pass1"},
+                {"ename": "Taylor Johnson", "empID": "777444","password":"pass2"}
             ]
         }
     ]

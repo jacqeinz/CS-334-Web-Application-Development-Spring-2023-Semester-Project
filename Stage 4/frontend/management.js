@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+  checkIfValidUser();
+});
+
 //Write initial flavor content
 document.getElementById("flavors").innerHTML = writeInitialFlavors();
 //define initial variable values
@@ -160,7 +164,20 @@ function createNewItem(){
     document.getElementById('newitem').style.display='none';
     
 }
-
+function checkIfValidUser(){
+  let userId = sessionStorage.getItem("userId");
+  if(userId){
+    fetch("/api/isValidUserId/" + userId)
+        .then((response) => response.text())
+        .then((text) => {
+          if(text == -1){
+            window.location.href = "managerPortalLogin.html";
+          }
+        });
+  } else {
+    window.location.href = "managerPortalLogin.html";
+  }
+}
 /*code to delete items within database*/
 
 /*code to write new items into database*/
@@ -176,6 +193,8 @@ const newItem = {
   image: " ", 
   button: " "
 }
+
+
 
 //Function to load in initial flavor content: Unfinished // should read from JSON
 function writeInitialFlavors(){

@@ -28,16 +28,17 @@
             <form action="{{ url_for('login') }}" method="post" id="loginForm">
                 <div class="error">{{ error }}</div>
                 <div>
-                    <label class="mb-3">Employee ID Number</label>
-                    <input type="text" name="empID"/>
+                    <label class="mb-3" for="username">Employee Username</label>
+                    <input type="text" name="username" id="username"/>
                 </div>
                 <div>
-                    <label class="mb-3">Password</label>
-                    <input type="password" name="password"/>
+                    <label class="mb-3" for="password">Password</label>
+                    <input type="password" name="password" id="password"/>
                 </div>
                 <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-            </form>
+            </form> 
             <a href="index.html">Return to Homepage</a>
         </div>
 </body>
+<script type="text/javascript" src="loginValid.js"></script>
 </html>

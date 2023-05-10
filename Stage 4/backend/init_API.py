@@ -13,6 +13,7 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import delete
+from flask_cors import CORS
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 json_url = os.path.join(SITE_ROOT, "defaultData.json")
@@ -25,6 +26,9 @@ app.config['SECRET_KEY'] = "SECRET_KEY"
 # initialize the app with the extension
 db = SQLAlchemy(app)
 #push context
+# initials CORS for cross-origin requests
+cors = CORS(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 mail= Mail(app)
 
@@ -197,6 +201,20 @@ class Items(db.Model):
         item.pname = pname
         item.price = price
         item.flavors = flavors
+
+class Users(db.Model):
+    id = mapped_column(Integer, primary_key=True)
+    ename = Column(String(50))
+    username = Column(String(50))
+    psswd = Column(String(50))
+ 
+
+    def __init__(user, id, ename, username, psswd):
+        user.id = id
+        user.ename = ename
+        user.username = username
+        user.psswd = psswd
+
 
 
       
@@ -402,6 +420,7 @@ def delete_order_api(order_id):
     db.session.delete(order)
     db.session.commit()
     return "Success"
+
 @app.route('/api/getSales')
 def get_sales_api():
     results = Orders.query.all()
@@ -423,31 +442,32 @@ def get_sales_api():
         })
     return json.dumps({'data':result_list})
 
-def loadInUsers():
-    with open("defaultData.json", "r") as file:
-        data = json.load(file)
-        return data["data"]
+@app.route('/api/deleteUsers/<user_id>', methods = ['DELETE'])
+def delete_user_api(user_id):
+    user = db.session.query(Users).get(user_id)
+    db.session.delete(user)
+    db.session.commit()
+    return "Success"
 
-@app.route("/managerPortalLogin", methods=["GET", "POST"])
+
+@app.route("/api/managerPortalLogin/", methods=["POST"])
 def login():
-    if request.method == 'POST' and 'empID' in request.form and 'password' in request.form:
-        emp_id = request.form['empID']
-        password = request.form['password']
-        with open('defaultData.json', 'r') as f:
-            json_data = json.load(f)
-        users={}
-        for dct in json_data['stores']:
-            if(dct['name'] == 'loginInfo'):
-                users = dct['data']
-        for user in users:
-            if(user['empID'] == emp_id and user['password']==password):
-                flash('You were successfully logged in!')
-                return render_template("management.html")
-            flash('Invalid username or password')
-            error = "Invalid credentials. Please try again."
-            return render_template("managerPortalLogin.html", error=error)
+    request_data = request.get_json()
+    username= request_data['username']
+    password = request_data['password']
+
+    user = db.session.query(Users).filter(Users.username == username).first()
+    if user and user['psswrd'] == password:
+        return user['id']
     else:
-        return render_template("managerPortalLogin.html")
+        return -1
+    
+@app.route("/api/isValidUserId/<user_id>",)
+def is_valid_user_id(user_id):
+    user = db.session.query(Users).get(user_id)
+    if user:
+        return 1
+    return -1
 
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
