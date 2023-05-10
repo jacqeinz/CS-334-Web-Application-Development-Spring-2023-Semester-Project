@@ -457,7 +457,7 @@ def login():
 
     user = db.session.query(Users).filter(Users.username == username).first()
     if user and user.psswd == password:
-        return '' + user.id
+        return str(user.id)
     else:
         return '-1'
     
