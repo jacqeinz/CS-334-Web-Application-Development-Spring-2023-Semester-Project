@@ -1,10 +1,11 @@
 import sqlite3
 import os.path
 import json
+from flask import Flask, request, jsonify
 
 # connect to the database
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-db_path = os.path.join(BASE_DIR, "initData.db")
+db_path = os.path.join(BASE_DIR, "defaultData.db")
 conn = sqlite3.connect(db_path)
 c = conn.cursor()
 
@@ -16,39 +17,60 @@ json_url = os.path.join(SITE_ROOT, "defaultData.json")
 with open(json_url) as f:
     data = json.load(f)
 
-# insert the defaultData.json data into the table - excluses employee data w/ if/else statements
-for store in data['stores']:
-    for item in store['data']:
-        if 'description' in item:
-            conn.execute('INSERT INTO IceCream (id, name, description, price, img_src) VALUES (?, ?, ?, ?, ?)',
-                  (item['id'], item['name'], item['description'], item['price'], item['imgSrc']))
-        else:
-            if 'price' in item:
-                item['description'] = ""
-                conn.execute('INSERT INTO IceCream (id, name, description, price, img_src) VALUES (?, ?, ?, ?, ?)',
-                    (item['id'], item['name'], item['description'], item['price'], item['imgSrc']))
-            elif 'id' in item:
-                item['description'] = ""
-                item['price'] = ""
-                conn.execute('INSERT INTO IceCream (id, name, description, price, img_src) VALUES (?, ?, ?, ?, ?)',
-                    (item['id'], item['name'], item['description'], item['price'], item['imgSrc']))
+app = Flask(__name__)
 
+#Code to update an item: 
+@app.route('/api/update_item', methods=['POST'])
+def update_item():
+    global conn
+    request_data = request.get_json()
+    name = request_data['name']
+    new_price = request_data['price']
+    new_description = request_data['description']
+    new_img_src = request_data['img_src']
 
-"""# insert a new row into the "IceCream" table
-name = 'Vanilla'
-price = 2.99
-description = 'Classic vanilla flavor'
-imgSource = '/strawberry.png'
-Type = 'flavor'"""
+    # update the item with the new information
+    conn.execute('UPDATE IceCream SET price=?, description=?, img_src=? WHERE name=?',
+        (new_price, new_description, new_img_src, name))
 
-# commit the changes to the database
-conn.commit()
+    # commit the changes to the database
+    conn.commit()
 
-# close the database connection
-conn.close()
+    return jsonify({'success': True})
 
+#Code to add a new item: 
+@app.route('/api/add_item', methods=['POST'])
+def adde_item():
+    global conn
+    request_data = request.get_json()
+    name = request_data['name']
+    new_price = request_data['price']
+    new_description = request_data['description']
+    new_img_src = request_data['img_src']
 
+    # add the item with the new information
+    conn.execute('INSERT INTO IceCream (id, name, description, price, img_src) VALUES (?, ?, ?, ?, ?)',
+        (new_price, new_description, new_img_src, name))
 
+    # commit the changes to the database
+    conn.commit()
+
+    return jsonify({'success': True})
+
+#Code to delete an item: 
+@app.route('/api/delete_item', methods=['POST'])
+def delete_item():
+    global conn
+    request_data = request.get_json()
+    name = request_data['name']
+
+    # delete the item from the database
+    conn.execute('DELETE FROM IceCream WHERE name=?', (name,))
+
+    # commit the changes to the database
+    conn.commit()
+
+    return jsonify({'success': True})
 
 
 
