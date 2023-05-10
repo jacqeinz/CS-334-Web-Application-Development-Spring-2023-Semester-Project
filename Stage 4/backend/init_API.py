@@ -209,8 +209,7 @@ class Users(db.Model):
     psswd = Column(String(50))
  
 
-    def __init__(user, id, ename, username, psswd):
-        user.id = id
+    def __init__(user, ename, username, psswd):
         user.ename = ename
         user.username = username
         user.psswd = psswd
@@ -529,6 +528,13 @@ def reset_db_data_api():
             for item in i['data']:
                 flavor = Flavors(item['id'], item['name'], item['imgSrc'].encode('utf-8'))
                 db.session.add(flavor)
+                db.session.commit()
+        if i['name'] == 'userType':
+            db.session.query(Users).delete()
+            db.session.commit()
+            for item in i['data']:
+                user = Users(item['ename'], item['empID'], item['password'])
+                db.session.add(user)
                 db.session.commit()
     return jsonify({'dbreset':'success'})
 
