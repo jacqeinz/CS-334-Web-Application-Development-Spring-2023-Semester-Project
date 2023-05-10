@@ -30,7 +30,7 @@ function setupTypes(data) {
       item_list += " "+price+" " + flavors +" "+ pname+", "
     }
     let email = document.createTextNode(type.email);
-    let id = document.createTextNode("Id: "+type.id)
+    let id = document.createTextNode("Id: "+type.id+", ")
   
     containerDiv.append(nameP);
     nameP.append(id)
