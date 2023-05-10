@@ -21,13 +21,13 @@ function setupTypes(data) {
     let containerDiv = document.createElement("div");
     column.append(containerDiv);
     let nameP = document.createElement("p");
-    let totalContent = document.createTextNode("Total"+ "$" + type.total+", ");
+    let totalContent = document.createTextNode("Total: "+ "$" + type.total+", ");
     let item_list = []
     for (item of type.items) {
       let price = item.price
       let flavors = item.flavors
       let pname = item.pname
-      item_list += " "+price+" " + flavors +" "+ pname+", "
+      item_list += " "+price+" " + flavors +", "+ pname+", "
     }
     let email = document.createTextNode(type.email);
     let id = document.createTextNode("Id: "+type.id+", ")
