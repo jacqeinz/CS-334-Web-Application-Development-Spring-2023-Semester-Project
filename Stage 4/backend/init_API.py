@@ -456,8 +456,8 @@ def login():
     password = request_data['password']
 
     user = db.session.query(Users).filter(Users.username == username).first()
-    if user and user['psswrd'] == password:
-        return user['id']
+    if user and user.psswrd == password:
+        return user.id
     else:
         return -1
     
