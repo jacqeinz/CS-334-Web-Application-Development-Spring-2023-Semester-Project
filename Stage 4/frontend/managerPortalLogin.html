@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,35 +11,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Manager Login Portal</title>
     <style>
-        .w3-sidebar a {font-family: "Roboto", sans-serif}
-        body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+        .w3-sidebar a {
+            font-family: "Roboto", sans-serif
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .w3-wide {
+            font-family: "Montserrat", sans-serif;
+        }
+
         .container {
             padding: 40px;
             text-align: center;
             max-width: 910px;
             margin: 20px auto;
-            box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.4);
+            box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
+
 <body>
-        <div class="container">
-            <a href="index.html"><img src="images/LOGO.JPG" width="200px" height="150px"></a>
-            <h1>Employee Account Login</h1>
-            <form action="{{ url_for('login') }}" method="post" id="loginForm">
-                <div class="error">{{ error }}</div>
-                <div>
-                    <label class="mb-3" for="username">Employee Username</label>
-                    <input type="text" name="username" id="username"/>
-                </div>
-                <div>
-                    <label class="mb-3" for="password">Password</label>
-                    <input type="password" name="password" id="password"/>
-                </div>
-                <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-            </form> 
-            <a href="index.html">Return to Homepage</a>
+    <div class="container">
+        <a href="index.html"><img src="images/LOGO.JPG" width="200px" height="150px"></a>
+        <h1>Employee Account Login</h1>
+
+        <div class="error">{{ error }}</div>
+        <div>
+            <label class="mb-3" for="username">Employee Username</label>
+            <input type="text" name="username" id="username" />
         </div>
+        <div>
+            <label class="mb-3" for="password">Password</label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <button type="submit" class="btn btn-primary" value="submit" onclick="checkDbID()">Submit</button>
+
+        <a href="index.html">Return to Homepage</a>
+    </div>
 </body>
 <script type="text/javascript" src="loginValid.js"></script>
+
 </html>
