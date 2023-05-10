@@ -15,7 +15,7 @@ function checkDbID() {
   let username = usernameInput.value.trim();
 
 
-  fetch("/api/managementPortalLogin/", {
+  fetch("/api/managerPortalLogin/", {
     method: "POST",
     body: JSON.stringify({
       username: username,
