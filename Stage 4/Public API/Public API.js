@@ -19,7 +19,7 @@ async function getData() {
         let price = item.price
         let flavors = item.flavors
         let pname = item.pname
-        item_list += " "+price+" " + flavors +" "+ pname+","
+        item_list += " "+price+" " + flavors +" "+ pname+", "
       }
       // let email = document.createTextNode(type.email);
       containerDiv.append(nameP);
