@@ -71,21 +71,21 @@
   </div>
     
 
-    <!-- Delete Order Modal -->
+    <!-- Delete User -->
     <div id="deleteUser" class="w3-row">
         <div class="w3-container w3-white w3-center">
           <h2 class="w3-wide">DELETE USER</h2>
           <div class="w3-display-container">
           </div>
         </div>
-        <p><input class="w3-input w3-border" id="empID" type="text" placeholder="Order ID"></p>
+        <p><input class="w3-input w3-border" id="empID" type="text" placeholder="User ID"></p>
         <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom"
           onclick="document.getElementById('deleteUser').style.display='none'">Cancel</button>
         <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom"
           onclick="deleteUser()">Save Changes</button>
     </div>
 
-    <!-- New User Modal -->
+    <!-- New User  -->
     <div id="newUser" class="w3-row">
           <div class="w3-container w3-white w3-center">
             <h2 class="w3-wide">New User</h2>
@@ -97,7 +97,7 @@
             <p><input class="w3-input w3-border" type="number" placeholder="empID" id="newEmpID" value=""></p>
             <p><input class="w3-input w3-border" type="text" placeholder="password" id="password" value=""></p>
             <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="cancel" onclick="document.getElementById('newitem').style.display='none'">Cancel</button>
-            <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="createItem" onclick="createNewItem(this)">Create User</button>
+            <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" id="createItem" onclick="addUser()">Create User</button>
           </div>
       </div>
 
