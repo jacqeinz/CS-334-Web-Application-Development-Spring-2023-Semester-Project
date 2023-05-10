@@ -457,9 +457,9 @@ def login():
 
     user = db.session.query(Users).filter(Users.username == username).first()
     if user and user.psswd == password:
-        return user.id
+        return '' + user.id
     else:
-        return -1
+        return '-1'
     
 @app.route("/api/isValidUserId/<user_id>",)
 def is_valid_user_id(user_id):
