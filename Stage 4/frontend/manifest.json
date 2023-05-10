@@ -1,5 +1,6 @@
 {
-      "start_url": "http://jacqiec.pythonanywhere.com/index.html",
+      "start_url": "https://jacqiec.pythonanywhere.com/",
+      "scrope": "https://jacqiec.pythonanywhere.com/",
       "lang": "en",
       "name": "Rolling Stone Ice Cream",
       "short_name": "RollingStoneIceCream",
