@@ -21,7 +21,7 @@ function setupTypes(data) {
     let containerDiv = document.createElement("div");
     column.append(containerDiv);
     let nameP = document.createElement("p");
-    let totalContent = document.createTextNode("$" + type.total);
+    let totalContent = document.createTextNode("$" + type.total+", ");
     let item_list = []
     for (item of type.items) {
       let price = item.price
@@ -30,8 +30,10 @@ function setupTypes(data) {
       item_list += " "+price+" " + flavors +" "+ pname+", "
     }
     let email = document.createTextNode(type.email);
+    let id = document.createTextNode(type.id)
     containerDiv.append(nameP);
-    nameP.append(totalContent);
+    nameP.append(id)
+    nameP.append("Total"+ totalContent);
     nameP.append(item_list);
     nameP.append(email)
 
