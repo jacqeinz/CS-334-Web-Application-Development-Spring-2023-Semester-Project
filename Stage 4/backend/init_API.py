@@ -465,8 +465,8 @@ def login():
 def is_valid_user_id(user_id):
     user = db.session.query(Users).get(user_id)
     if user:
-        return 1
-    return -1
+        return '1'
+    return '-1'
 
 @app.route('/api/test/resetDbData')
 def reset_db_data_api():
